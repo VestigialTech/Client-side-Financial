@@ -40,9 +40,10 @@ li, a, button {
 .container{
 
   display: flex;
+  padding-top: 100px;
   flex-direction: row;
   justify-content: space-evenly;
-  align-items: center;
+  align-items: flex-start;
   text-align: center;
   min-height: 100vh;
 
@@ -114,7 +115,7 @@ canvas {
 }
 .nav_links li {
   display:inline-block;
-  padding:0px 20px;
+  padding: 0 20px;
 }
 
 .nav_links li a {
@@ -137,4 +138,3 @@ button{
 button:hover {
   background-color: rgba(0, 136, 169, 0.8);
 }
-
