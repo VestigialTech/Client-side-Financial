@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap');
 
 *{
+
   box-sizing:border-box;
   margin: 0;
   padding:0;
@@ -8,6 +9,8 @@
   letter-spacing:4px;
   background-color: #25252A;
 }
+
+
 
 li, a, button {
   font-family: "Source Sans Pro", sans-serif;
@@ -38,20 +41,32 @@ li, a, button {
 }
 
 .container{
-
+  z-index: 2;
+  position: relative;
+  background-size: 400px auto;
   display: flex;
-  padding-top: 100px;
   flex-direction: row;
   justify-content: space-evenly;
   align-items: flex-start;
-  text-align: center;
   min-height: 100vh;
+  text-align: center;
+
 
 }
-
+#bg {
+  z-index: 1;
+  position: relative;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 .btn-1
 {
-
+  z-index: 2;
   width: 300px;
   height: 100px;
   border: none;
@@ -62,18 +77,21 @@ li, a, button {
   transition: ease-out 0.3s;
   font-size: 2rem;
   outline: none;
+  top:-400px; /*This is a pretty terrible solution; it doesn't scale well. Still pushing to branch tho*/
+  align-items:center;
+  position:absolute;
 }
 
 .btn-1:hover
 
 {
   box-shadow: inset 300px 0 0 0 rgb(28, 216, 232);
-  cursor:pointer;
-  color:#000000;
+  cursor: pointer;
+  color: #000000;
 }
 
 body {
-  background-color: white;
+  background-size: 400px auto;
 }
 
 header{
@@ -88,6 +106,7 @@ h1 {
   justify-content: center;
   color: #4382ad;
   font-size: 300%;
+  padding: 30px 10%;
 }
 
 h2 {
