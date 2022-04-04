@@ -2,7 +2,7 @@
 
 <head>
 
-    <link href="stylesheet.css" rel="stylesheet"/>
+   
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,41 +10,50 @@
     <meta name="Author X" content="Nick K.">
     <meta name="Author Y" content="Tigist T.">
     <meta name="Author Z" content="Deontae A.">
-
-    <title>Client-side Financial</title>
-
+    <meta name="Author Z" content="Anshul N.">
+    <link href="Client-Side-Financial.css" rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" integrity="sha256-46r060N2LrChLLb5zowXQ72/iKKNiw/lAmygmHExk/o=" crossorigin="anonymous" />
+    <link rel = "icon" type = "image/png" href ="images/favicon.png"/><title >ATND Real Estate</title>
+    
 </head>
 
 <body>
 
 <header>
   <!---logo here-->
-  <!--  <img class = "logo" src="images/logo.svg" alt = "logo"> -->
-
   <nav>
-
-    <ul class="nav_links">
-
-      <li><a href="#">Home</a></li>
-      <li><a href="#">Product</a></li>
-      <li><a href="#">Mission Statement</a></li>
-
+    <img class="imagel" src = "images/logo.png" alt = "logo"/>
+    <div class="openMenu">
+      <li class="fa fa-bars"></li>
+    </div>
+    <ul class="mainMenu">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Buy</a></li>
+        <li><a href="#">Rent</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">About</a></li>
+        <div class="closeMenu"><i class="fa fa-times"></i></div>
     </ul>
-
+        
+        
 </nav>
-  <a class="cta" href="#"><button>Contact</button></a>
 
 </header>
 
-  <h1>Client-side Real Estate</h1>
 
-  <div class="container">
-    <button class = "btn-1"> Query Listings </button>
+<div class="search">
+  <div class="search-link">
+    <input type="text" placeholder="Enter Zipcode" />
+    <a href="">Search</a>
   </div>
-
-<script>
-
-
+</div>
+</section>
+ 
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TimelineMax.min.js"></script>
+<script src = "Client-Side-Financial.js">
 </script>
 
 </body>
