@@ -1,59 +1,174 @@
 <!DOCTYPE html>
-
+<html>
 <head>
+    <title>Client-side Financial</title>
+    <link rel="stylesheet" type="text/css" href=".idea/css/style.css">
 
-   
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--Author + Preferred titles--->
-    <meta name="Author X" content="Nick K.">
-    <meta name="Author Y" content="Tigist T.">
-    <meta name="Author Z" content="Deontae A.">
-    <meta name="Author Z" content="Anshul N.">
-    <link href="Client-Side-Financial.css" rel="stylesheet"/>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" integrity="sha256-46r060N2LrChLLb5zowXQ72/iKKNiw/lAmygmHExk/o=" crossorigin="anonymous" />
-    <link rel = "icon" type = "image/png" href ="images/favicon.png"/><title >ATND Real Estate</title>
-    
+
 </head>
-
 <body>
+<!----hero image section start---->
 
-<header>
-  <!---logo here-->
-  <nav>
-    <img class="imagel" src = "images/logo.png" alt = "logo"/>
-    <div class="openMenu">
-      <li class="fa fa-bars"></li>
+<div class="hero">
+    <nav>
+        <h2 class="logo">Client-side<span> Financial</span></h2>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Services</a></li>
+        </ul>
+        <a href="#" class="signUpButton">Sign up / Log in</a>
+    </nav>
+
+    <div class="content">
+        <h3>Let us help you</h3>
+        <h1>Get your <span>Dream House</span></h1>
+        <h3>Serving the Chicagoland area since 2022</h3>
+        <div class="Query">
+            <form>
+                <input type="text" name="Query" id="Query" placeholder="Enter Your City">
+                <!---note for group; change "text" if expecting different result--->
+                <input type="submit" name="submit" value="Query Listings">
+                <select id="state">
+                    <option value="AL">Alabama</option>
+                    <option value="AK">Alaska</option>
+                    <option value="AZ">Arizona</option>
+                    <option value="AR">Arkansas</option>
+                    <option value="CA">California</option>
+                    <option value="CO">Colorado</option>
+                    <option value="CT">Connecticut</option>
+                    <option value="DE">Delaware</option>
+                    <option value="DC">District Of Columbia</option>
+                    <option value="FL">Florida</option>
+                    <option value="GA">Georgia</option>
+                    <option value="HI">Hawaii</option>
+                    <option value="ID">Idaho</option>
+                    <option value="IL">Illinois</option>
+                    <option value="IN">Indiana</option>
+                    <option value="IA">Iowa</option>
+                    <option value="KS">Kansas</option>
+                    <option value="KY">Kentucky</option>
+                    <option value="LA">Louisiana</option>
+                    <option value="ME">Maine</option>
+                    <option value="MD">Maryland</option>
+                    <option value="MA">Massachusetts</option>
+                    <option value="MI">Michigan</option>
+                    <option value="MN">Minnesota</option>
+                    <option value="MS">Mississippi</option>
+                    <option value="MO">Missouri</option>
+                    <option value="MT">Montana</option>
+                    <option value="NE">Nebraska</option>
+                    <option value="NV">Nevada</option>
+                    <option value="NH">New Hampshire</option>
+                    <option value="NJ">New Jersey</option>
+                    <option value="NM">New Mexico</option>
+                    <option value="NY">New York</option>
+                    <option value="NC">North Carolina</option>
+                    <option value="ND">North Dakota</option>
+                    <option value="OH">Ohio</option>
+                    <option value="OK">Oklahoma</option>
+                    <option value="OR">Oregon</option>
+                    <option value="PA">Pennsylvania</option>
+                    <option value="RI">Rhode Island</option>
+                    <option value="SC">South Carolina</option>
+                    <option value="SD">South Dakota</option>
+                    <option value="TN">Tennessee</option>
+                    <option value="TX">Texas</option>
+                    <option value="UT">Utah</option>
+                    <option value="VT">Vermont</option>
+                    <option value="VA">Virginia</option>
+                    <option value="WA">Washington</option>
+                    <option value="WV">West Virginia</option>
+                    <option value="WI">Wisconsin</option>
+                    <option value="WY">Wyoming</option>
+                </select>
+                <select>
+                    <option value="for-sale">Sale</option>
+                    <option value="for-rent">Rent</option>
+                </select>
+            </form>
+        </div>
     </div>
-    <ul class="mainMenu">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Buy</a></li>
-        <li><a href="#">Rent</a></li>
-        <li><a href="#">Contact</a></li>
-        <li><a href="#">About</a></li>
-        <div class="closeMenu"><i class="fa fa-times"></i></div>
-    </ul>
-        
-        
-</nav>
-
-</header>
-
-
-<div class="search">
-  <div class="search-link">
-    <input type="text" placeholder="Enter Zipcode" />
-    <a href="">Search</a>
-  </div>
 </div>
-</section>
- 
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TimelineMax.min.js"></script>
-<script src = "Client-Side-Financial.js">
-</script>
 
+<!----About us section start---->
+<section class="about">
+    <div class="main">
+        <img src="img/main-img.jpg" alt="computer">
+        <div class="about-text">
+            <h2>About Us</h2>
+            <h5>Dedicated Financial Analysts <span>And Proficient Programmers</span></h5>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Cursus in hac habitasse platea dictumst quisque. Consectetur adipiscing elit duis tristique sollicitudin nibh sit amet. Ut tristique et egestas quis ipsum suspendisse ultrices gravida dictum.</p>
+            <button type="button">Let's Chat</button>
+        </div>
+    </div>
+</section>
+
+<!-----service section start----------->
+<div class="service">
+    <div class="title">
+        <h2>Our Services</h2>
+    </div>
+
+    <div class="box">
+        <div class="card">
+            <i class="fas fa-bars"></i>
+            <h5>API Data Retrieval</h5>
+            <div class="pra">
+                <p>Amet venenatis urna cursus eget nunc. Commodo sed egestas egestas fringilla phasellus faucibus scelerisque eleifend. </p>
+
+                <p style="text-align: center;">
+                    <a class="button" href="#">Read More</a>
+                </p>
+            </div>
+        </div>
+
+        <div class="card">
+            <i class="far fa-user"></i>
+            <h5>Front-end Support</h5>
+            <div class="pra">
+                <p>Aliquam id diam maecenas ultricies mi. Massa ultricies mi quis hendrerit dolor magna eget est lorem. Nisl nisi scelerisque eu ultrices.  </p>
+
+                <p style="text-align: center;">
+                    <a class="button" href="#">Read More</a>
+                </p>
+            </div>
+        </div>
+
+        <div class="card">
+            <i class="far fa-bell"></i>
+            <h5>Back-end Support</h5>
+            <div class="pra">
+                <p>Tempus urna et pharetra pharetra massa massa ultricies. Ultricies tristique nulla aliquet enim tortor at. Neque convallis a cras semper. </p>
+
+                <p style="text-align: center;">
+                    <a class="button" href="#">Read More</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!------Contact Us------>
+<div class="contact-us">
+    <p>Let Us Provide You The Best Housing</p>
+    <a class="button-two" href="#">Hire our team</a>
+</div>
+
+<!------Social media start--------->
+<footer>
+    <p>Client-side Financial</p>
+    <p>For more assistance, feel free to reach out to use on our various social media</p>
+    <div class="social">
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+    </div>
+    <p class="end">Copyleft by Client-side Financial Inc.</p>
+</footer>
+<script src="Tree.js"></script>
 </body>
+</html>
