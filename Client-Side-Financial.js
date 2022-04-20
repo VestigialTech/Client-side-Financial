@@ -13,6 +13,14 @@ function show(){
 function close(){
     mainMenu.style.top = '-110%';
 }
-
+let content = document.getElementById('text');
+let hero = document.querySelector('.hero');
+window.addEventListener('scroll', scrollMove());
+function scrollMove(){
+let value = window.scrollY;
+hero.style.left = value * 0.25 + 'px'
+content.style.marginRight = value * 4 +'px';
+//content.style.marginTop = value * 1.5 +'px';
+}
 
 
