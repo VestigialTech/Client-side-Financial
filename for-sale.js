@@ -1,9 +1,5 @@
-var URL = 'https://us-real-estate.p.rapidapi.com/v2/for-sale?offset=0&limit=42&state_code=MI&city=Detroit'
-const searchBtn = document.getElementById("search-btn");
-const city = document.getElementById("search-input");
-const homeDetails = document.querySelector('.home-descriptions');
-const closeBtn = document.getElementById("home-close-btn");
-///const URL = 'https://us-real-estate.p.rapidapi.com/v2/for-sale?offset=0&limit=1&state_code='
+"use strict"
+
 const options = {
     method: 'GET',
     headers: {
@@ -12,82 +8,55 @@ const options = {
     }
 };
 
-function getPropertyDetails(search) {
-    fetch(URL , options)
-        .then(response => {
-            var value = (response.json())
-            console.log(value)
-            const match = findNestedObject(Object, "baths", "2");
-            console.log(match)
-        }).catch(err =>
-        console.error(err));
-};
-
-getPropertyDetails(Object.data);
-
-//Checks if it's an Object and not an Array
-const isObject = (value) => {
-    return !!(value && typeof value === "object" && !Array.isArray(value));
-};
+function checkCityState(){
+    let cityName = document.getElementById('Query').value;
+    let state = document.getElementById('state').value;
+    console.log(cityName,state);
+    if(cityName.length !== 0 && state.length !== 0)
+    {
+        document.getElementById('preview-search').innerHTML = '';
+    }else{
+        alert("Enter city and state")
+    }
+}
 
 
-//Takes an object with a key and value to find for recursive purposes
-const findNestedObject = (object = {}, keyToMatch = "", valueToMatch = "") => {
-    if (isObject(object)) {
-        const entries = Object.entries(object);
+document.getElementById("query-listings").addEventListener("click", function(event){
+    event.preventDefault()
 
-        for (let i = 0; i < entries.length; i += 1) {
-            const [objectKey, objectValue] = entries[i];
+    let state = document.getElementById('state').value;
+    let city = document.getElementById('Query').value || null;
 
-            if (objectKey === keyToMatch && objectValue === valueToMatch) {
-                return object;
-            }
-
-            if (isObject(objectValue)) {
-                const child = findNestedObject(objectValue, keyToMatch, valueToMatch);
-
-                if (child !== null) {
-                    return child;
-                }
-            }
-        }
+    if(!state || !city){
+        alert('Kindly complete the form!');
+        return;
     }
 
-    return null;
-};
-
-///Event Listeners on enter and on click
-
-//searchBtn.addEventListener('click', getCityData);
-/*document.querySelector('state').addEventListener('keypress', function (e) {
-    if (e.key === 'Enter') {
-        getCityData();
-    }
-});*/
-
-/*function getCityData(){
-    let searchInputCity = document.getElementById('Query').value.trim();
-    let searchInputState = document.getElementById("state").value.trim();
-    fetch(URL + '${searchInputState}' + '&city=' + '${searchInputCity}', options)
+    console.log(state, city);
+    fetch(`https://us-real-estate.p.rapidapi.com/v2/for-sale?offset=0&limit=10&state_code=${state} &city=${city}&sort=newest`, options)
         .then(response => response.json())
-        .then(data =>{
-            console.log(data)
+        .then(response =>{
+            console.log(response);
+
+            let states= response.data.home_search.results;
+
+            states.map(state=>{
+                document.getElementById('preview-search').innerHTML += `
+
+		<div class="preview-item">
+            <div class="images/home-img" id="preview-img">
+                <img src="${state?.primary_photo?.href}" id="image" alt="home images">
+            </div>
+		<div class="preview-home-descriptions">
+		    <h5 class="description of the home"> $ ${state?.list_price}</h5>
+
+			<h5 class="brand">Company Name: ${state?.branding[0].name}</h5>
+			<a href="#" class="view-home-button">View Home</a>
+		</div>
+       </div>
+		`;
+            })
         })
-}*/
+        .catch(err => console.error(alert("Please try your search again")));
 
-////////////////////////////
-function iterateData(obj){
-    for (property in obj){
-        if(typeof(obj[property]) == 'object') {
-            iterateData(obj[property]);
-        } else {
-            if(property == 'results' || property == 'data'){
-                console.log(obj[property])
-            }
-        }
-    }
-};
-
-/*create a switch case for each example of a search, initial page must have a state and city input*/
-
-
+});

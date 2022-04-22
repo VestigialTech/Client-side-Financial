@@ -29,10 +29,10 @@
         <h3>Serving the Chicagoland area since 2022</h3>
         <div class="Query">
             <form>
-                <input type="text" name="Query" id="Query" placeholder="Enter Your City">
+                <input type="text" name="Query" id="Query" placeholder="Enter Your City" oninput="checkCityState()">
                 <!---note for group; change "text" if expecting different result--->
-                <input type="submit" name="submit" value="Query Listings">
-                <select id="state">
+                <input type="submit" name="submit" id="query-listings">
+                <select id="state" oninput="checkCityState()">
                     <option value="AL">Alabama</option>
                     <option value="AK">Alaska</option>
                     <option value="AZ">Arizona</option>
@@ -86,11 +86,16 @@
                     <option value="WY">Wyoming</option>
                 </select>
                 <select>
-                    <option value="for-sale">Sale</option>
-                    <option value="for-rent">Rent</option>
+                    <option value="for-sale?">Buy</option>
+                    <option value="for-rent?">Rent</option>
                 </select>
             </form>
         </div>
+    </div>
+</div>
+<div class="preview-wrapper">
+    <div id="preview-search">
+<!--Houses will be placed here dynamically-->
     </div>
 </div>
 
@@ -169,6 +174,6 @@
     </div>
     <p class="end">Copyleft by Client-side Financial Inc.</p>
 </footer>
-<script src="Tree.js"></script>
+<script src="for-sale.js"></script>
 </body>
 </html>
