@@ -24,17 +24,27 @@ document.getElementById("search-btn").addEventListener("click", function (event)
         fetch(`https://us-real-estate.p.rapidapi.com/v2/${saleOrRent}offset=0&limit=200&state_code=${state}&city=${city}&sort=newest&price_max=${maxPrice}&beds_max=${maxBeds}&baths_max=${maxBathrooms}`, options)
             .then(response => response.json())
             .then(response => {
+                let counter = 0;
                 let cities = response.data.home_search.results
                  cities.filter(Boolean).map(city => {
+                     let baths = '', propertyId = '', address ='';
+                     for(let i = 0; i < 1; i++){
+                         baths = cities[counter].description.baths;
+                         propertyId = cities[counter].property_id;
+                         address = cities[counter].location.address.line;
+                     }
+                     console.log(address)
+                     counter++;
                     document.getElementById('home').innerHTML += `
 		<div class="home-item">
             <div class="images/home-img" >
-                <img src="${city?.primary_photo.href}" id="image" alt="home images">
+                <img src="${city.primary_photo?.href}" id="image" alt="home images">
             </div>
 		<div class="home-descriptions">
-		    <h5 class="description-of-home"> $ ${city?.list_price} </h5>
-		    <h5 class="description-of-home"></h5>
-			<h5 class="home-brand">Company Name: ${city?.branding[0].name}</h5>
+		    <h5 class="description-of-home" id="listing-price"> $ ${city?.list_price} </h5>
+		    <h5 class="description-of-home" id="bath-count">Baths: ${baths}</h5>
+			<h5 class="description-of-home" id="branding">Company Name: ${city?.branding[0].name}</h5>
+			<h5 class="description-of-home" id="bath-count">Address: ${address}</h5>
 			<a href="#" class="view-home-button">View Listing</a>
 		</div>
        </div>
@@ -42,7 +52,7 @@ document.getElementById("search-btn").addEventListener("click", function (event)
                 })
             })
     } catch {
-        alert("Enter another city to for listings")
+        alert("Enter another city for listings")
     }
 
 });
