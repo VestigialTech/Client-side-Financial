@@ -2,11 +2,11 @@
 <html>
 <head>
     <title>Client-side Financial</title>
-    <link rel="stylesheet" type="text/css" href=".idea/css/style.css">
+    <link href=".idea/css/style.css" rel="stylesheet" type="text/css">
 
-    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.gstatic.com" rel="preconnect">
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" referrerpolicy="no-referrer" rel="stylesheet" />
 
 
 </head>
@@ -20,7 +20,7 @@
             <li><a href="#">Home</a></li>
             <li><a href="#">Services</a></li>
         </ul>
-        <a href="#" class="signUpButton">Sign up / Log in</a>
+        <a class="signUpButton" href="#">Sign up / Log in</a>
     </nav>
 
     <div class="content">
@@ -29,9 +29,9 @@
         <h3>Serving the Chicagoland area since 2022</h3>
         <div class="Query">
             <form>
-                <input type="text" name="Query" id="Query" placeholder="Enter Your City" oninput="checkCityState()">
+                <input id="Query" name="Query" oninput="checkCityState()" placeholder="Enter Your City" type="text">
                 <!---note for group; change "text" if expecting different result--->
-                <input type="submit" name="submit" id="query-listings">
+                <input id="query-listings" name="submit" type="submit">
                 <select id="state" oninput="checkCityState()">
                     <option value="AL">Alabama</option>
                     <option value="AK">Alaska</option>
@@ -85,7 +85,7 @@
                     <option value="WI">Wisconsin</option>
                     <option value="WY">Wyoming</option>
                 </select>
-                <select>
+                <select id="rent-sale">
                     <option value="for-sale?">Buy</option>
                     <option value="for-rent?">Rent</option>
                 </select>
@@ -102,7 +102,7 @@
 <!----About us section start---->
 <section class="about">
     <div class="main">
-        <img src="img/main-img.jpg" alt="computer">
+        <img alt="computer" src="img/main-img.jpg">
         <div class="about-text">
             <h2>About Us</h2>
             <h5>Dedicated Financial Analysts <span>And Proficient Programmers</span></h5>

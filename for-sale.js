@@ -8,39 +8,36 @@ const options = {
     }
 };
 
-function checkCityState(){
+function checkCityState() {
     let cityName = document.getElementById('Query').value;
     let state = document.getElementById('state').value;
-    console.log(cityName,state);
-    if(cityName.length !== 0 && state.length !== 0)
-    {
+    console.log(cityName, state);
+    if (cityName.length !== 0 && state.length !== 0) {
         document.getElementById('preview-search').innerHTML = '';
-    }else{
+    } else {
         alert("Enter city and state")
     }
 }
 
 
-document.getElementById("query-listings").addEventListener("click", function(event){
+document.getElementById("query-listings").addEventListener("click", function (event) {
     event.preventDefault()
 
     let state = document.getElementById('state').value;
     let city = document.getElementById('Query').value || null;
+    let saleOrRent = document.getElementById('rent-sale').value || 'for-sale?';
 
-    if(!state || !city){
+    if (!state || !city) {
         alert('Kindly complete the form!');
         return;
     }
 
-    console.log(state, city);
-    fetch(`https://us-real-estate.p.rapidapi.com/v2/for-sale?offset=0&limit=10&state_code=${state} &city=${city}&sort=newest`, options)
+    console.log(state, city, saleOrRent);
+    fetch(`https://us-real-estate.p.rapidapi.com/v2/${saleOrRent}offset=0&limit=10&state_code=${state} &city=${city}&sort=newest`, options)
         .then(response => response.json())
-        .then(response =>{
-            console.log(response);
-
-            let states= response.data.home_search.results;
-
-            states.map(state=>{
+        .then(response => {
+            let states = response.data.home_search.results;
+            states.map(state => {
                 document.getElementById('preview-search').innerHTML += `
 
 		<div class="preview-item">
@@ -51,7 +48,6 @@ document.getElementById("query-listings").addEventListener("click", function(eve
 		    <h5 class="description of the home"> $ ${state?.list_price}</h5>
 
 			<h5 class="brand">Company Name: ${state?.branding[0].name}</h5>
-			<a href="#" class="view-home-button">View Home</a>
 		</div>
        </div>
 		`;

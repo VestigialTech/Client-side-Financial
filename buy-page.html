@@ -34,9 +34,9 @@
     <div class="search-bar-wrapper">
         <div class="home-search">
             <h2 class="title">Find Your Next Home or Rental Property</h2>
-            <blockquote>The heart is where the home is</blockquote>
+            <blockquote id="block">The heart is where the home is</blockquote>
             <div class="home-search-box">
-                <form class="home-search-box-form">
+                <form class="home-search-box-form" id="search-box-form">
                     <input type="text" id="search-content" class="search-content" placeholder="Enter a City" oninput="checkCity()">
                     <select class="search-content" placeholder="max beds" id="max-bedroom">
                         <option value="null">Any</option>
@@ -73,7 +73,7 @@
                         <option value="15000000"> $1,500,000 </option>"
                         <option value="3000000"> $3,000,000 </option>"
                     </select>
-                    <select id="sale-rent">
+                    <select class=" search-content" id="sale-rent">
                         <option value="for-sale?">Buy</option>
                         <option value="for-rent?">Rent</option>
                     </select>

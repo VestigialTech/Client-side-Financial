@@ -10,7 +10,7 @@ const options = {
 
 
 //Event listener for
-document.getElementById("search-btn").addEventListener("click", function(event) {
+document.getElementById("search-btn").addEventListener("click", function (event) {
     event.preventDefault()
 
     let city = document.getElementById('search-content').value;
@@ -25,7 +25,7 @@ document.getElementById("search-btn").addEventListener("click", function(event) 
             .then(response => response.json())
             .then(response => {
                 let cities = response.data.home_search.results
-                cities.map(city => {
+                 cities.filter(Boolean).map(city => {
                     document.getElementById('home').innerHTML += `
 		<div class="home-item">
             <div class="images/home-img" >
@@ -41,16 +41,18 @@ document.getElementById("search-btn").addEventListener("click", function(event) 
 		`;
                 })
             })
-    } catch{
-            alert("Enter another city to for listings")
-}
+    } catch {
+        alert("Enter another city to for listings")
+    }
 
 });
 
-function checkCity(){
+function checkCity() {
     let cityName = document.getElementById('search-content').value;
-    if(cityName.length == 0)
-    {
+    if (cityName.length !== 0) {
         document.getElementById('home').innerHTML = '';
+    } else {
+        alert("Please enter a city")
     }
 }
+///try using getData function to get deeper into the nesting
