@@ -8,8 +8,17 @@ const options = {
     }
 };
 
+//Checks input to conduct a search, returns a message if missing parameters
+function checkCity() {
+    let cityName = document.getElementById('search-content').value;
+    if (cityName.length !== 0) {
+        document.getElementById('home').innerHTML = '';
+    } else {
+        alert("Please enter a city")
+    }
+}
 
-//Event listener for
+//Event listener that grabs user's input values
 document.getElementById("search-btn").addEventListener("click", function (event) {
     event.preventDefault()
 
@@ -25,26 +34,27 @@ document.getElementById("search-btn").addEventListener("click", function (event)
             .then(response => response.json())
             .then(response => {
                 let counter = 0;
-                let cities = response.data.home_search.results
+                let cities = response.data.home_search.results //This grabs the json object and to later map and retrieve properties
                  cities.filter(Boolean).map(city => {
-                     let baths = '', propertyId = '', address ='';
+                     let baths, propertyId, address, bedrooms;
                      for(let i = 0; i < 1; i++){
                          baths = cities[counter].description.baths;
+                         bedrooms = cities[counter].description.beds;
                          propertyId = cities[counter].property_id;
                          address = cities[counter].location.address.line;
                      }
-                     console.log(address)
-                     counter++;
+                     counter++; //Counter iterates through each listing to retrieve property details, properties are then placed into html
                     document.getElementById('home').innerHTML += `
 		<div class="home-item">
             <div class="images/home-img" >
                 <img src="${city.primary_photo?.href}" id="image" alt="home images">
             </div>
 		<div class="home-descriptions">
-		    <h5 class="description-of-home" id="listing-price"> $ ${city?.list_price} </h5>
-		    <h5 class="description-of-home" id="bath-count">Baths: ${baths}</h5>
-			<h5 class="description-of-home" id="branding">Company Name: ${city?.branding[0].name}</h5>
-			<h5 class="description-of-home" id="bath-count">Address: ${address}</h5>
+		    <h5 class="description-of-home" id="listing-price"> $ ${city?.list_price.toLocaleString()} </h5>
+		    <h5 class="description-of-home" id="bed-count">Bedroom/s: ${bedrooms}</h5>
+		    <h5 class="description-of-home" id="bath-count">Bath/s: ${baths}</h5>
+			<h5 class="description-of-home" id="branding">Company: ${city?.branding[0].name}</h5>
+			<h5 class="description-of-home" id="address">Address: ${address}</h5>
 			<a href="#" class="view-home-button">View Listing</a>
 		</div>
        </div>
@@ -57,12 +67,4 @@ document.getElementById("search-btn").addEventListener("click", function (event)
 
 });
 
-function checkCity() {
-    let cityName = document.getElementById('search-content').value;
-    if (cityName.length !== 0) {
-        document.getElementById('home').innerHTML = '';
-    } else {
-        alert("Please enter a city")
-    }
-}
-///try using getData function to get deeper into the nesting
+

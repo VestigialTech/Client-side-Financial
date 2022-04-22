@@ -8,10 +8,11 @@ const options = {
     }
 };
 
+//Checks city and state input to conduct a search, returns a message if missing parameters
 function checkCityState() {
     let cityName = document.getElementById('Query').value;
     let state = document.getElementById('state').value;
-    console.log(cityName, state);
+
     if (cityName.length !== 0 && state.length !== 0) {
         document.getElementById('preview-search').innerHTML = '';
     } else {
@@ -19,40 +20,48 @@ function checkCityState() {
     }
 }
 
-
+//Event listener that grabs user's input value
 document.getElementById("query-listings").addEventListener("click", function (event) {
     event.preventDefault()
 
     let state = document.getElementById('state').value;
-    let city = document.getElementById('Query').value || null;
+    let city = document.getElementById('Query').value;
     let saleOrRent = document.getElementById('rent-sale').value || 'for-sale?';
 
-    if (!state || !city) {
+    if (!state || !city) { //Checks for empty parameters
         alert('Kindly complete the form!');
         return;
     }
-
-    console.log(state, city, saleOrRent);
+//Makes an API call with fetch using the user's input
     fetch(`https://us-real-estate.p.rapidapi.com/v2/${saleOrRent}offset=0&limit=10&state_code=${state} &city=${city}&sort=newest`, options)
         .then(response => response.json())
         .then(response => {
-            let states = response.data.home_search.results;
+            let counter = 0;
+            let states = response.data.home_search.results;  //This grabs the json object and to later map and retrieve properties
             states.map(state => {
-                document.getElementById('preview-search').innerHTML += `
+                let baths, propertyId, address, bedrooms;
+                for(let i = 0; i < 1; i++){
+                    baths = states[counter].description.baths;
+                    bedrooms = states[counter].description.beds;
+                    propertyId = states[counter].property_id;
+                    address = states[counter].location.address.line;
+                }
+                console.log(address, propertyId)
+                counter++; //Counter iterates through each listing to retrieve listing details, properties are then placed into html
+                document.getElementById('preview-search').innerHTML += ` 
 
 		<div class="preview-item">
             <div class="images/home-img" id="preview-img">
-                <img src="${state?.primary_photo?.href}" id="image" alt="home images">
+                <img src="${state?.primary_photo?.href}" id="image" alt="primary home image">
             </div>
 		<div class="preview-home-descriptions">
-		    <h5 class="description of the home"> $ ${state?.list_price}</h5>
-
-			<h5 class="brand">Company Name: ${state?.branding[0].name}</h5>
+		    <h5 class="description-of-home" id="price-listed"> $ ${state?.list_price.toLocaleString()} </h5>
+		    <h5 class="description-of-home" id="bed-counts">Bedroom/s: ${bedrooms}</h5>
+		    <h5 class="description-of-home" id="bath-counts">Bath/s: ${baths}</h5>
+			<h5 class="description-of-home" id="brand">Company: ${state?.branding[0].name}</h5>
+			<h5 class="description-of-home" id="addresses">Address: ${address}</h5>
 		</div>
        </div>
 		`;
-            })
-        })
-        .catch(err => console.error(alert("Please try your search again")));
-
-});
+            }).catch(err => console.error(alert("Please try your search again")));
+        })})
