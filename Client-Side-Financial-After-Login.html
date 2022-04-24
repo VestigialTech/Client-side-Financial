@@ -14,7 +14,14 @@
 <body>
 	<!----hero image section start---->
     <div class="hero">
-		<a href="login.html" class="signUpButton">Sign up / Log in</a>
+		<a href="Client-Side-Financial.html" class="signout">Sign Out</a>
+		<a href="login.html" id= "user" class="signUpButton">Sign up / Log in</a>
+		<a href="#" id="favs" class="favorites">Favorites</a>
+		<script>
+			var username = localStorage.getItem('username');
+			username = username.replace(/['"]+/g, '');
+			document.getElementById("user").innerHTML = username;
+		</script>
 		<nav>
 			<h2 class="logo"><img rel = "log" type = "image/png" src = "img/favicon.png">ATND<span> Real Estate</span></h2>
 			<div class="openMenu">
@@ -116,5 +123,6 @@
 		</div>
 		<p class="end">Copyleft by Client-side Financial Inc.</p>
 	</footer>
+	<script src="Client-Side-Financial.js"></script>
 </body>
 </html>
