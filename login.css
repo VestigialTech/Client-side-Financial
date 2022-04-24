@@ -215,48 +215,6 @@ button:hover{
 .signUpButton:hover{
 	transform: scale(1.1);
 }
-
-.signout{
-	margin-top :10px;
-	margin-right: 10px;
-	padding-top: 20px;
-	font-size: small;
-	top: -5px;
-	float:right;
-	padding: 10px 25px;
-	background-color: rgb(90, 50, 168);
-	color: white;
-	text-decoration: none;
-	font-weight: bold;
-	border-radius: 30px;
-	transition: transform .4s;
-	border: 2px solid transparent;
-}
-
-.signout:hover{
-	transform: scale(1.1);
-}
-
-.favorites{
-	margin-top :10px;
-	margin-right: 10px;
-	padding-top: 20px;
-	font-size: small;
-	top: -5px;
-	float:right;
-	padding: 10px 25px;
-	background-color: rgb(90, 50, 168);
-	color: white;
-	text-decoration: none;
-	font-weight: bold;
-	border-radius: 30px;
-	transition: transform .4s;
-	border: 2px solid transparent;
-}
-
-.favorites:hover{
-	transform: scale(1.1);
-}
 .content{
 	transform: translateY(-50%);
 	position: absolute;
@@ -327,6 +285,68 @@ h5{
 	box-shadow: inset 380px 0 0 0 rgb(142, 50, 168);
 	transition: .8s;
 	cursor: pointer;
+}
+.box{
+	width:300px;
+	padding:30px;
+	position: absolute;
+	top:50%;
+	left:50%;
+	transform: translate(-50%,-50%);
+	background:rgba(0,0,0,0.4);
+	text-align:center;
+  
+  }
+.box h3
+{
+	display: inline-block;
+	width:100px;
+	text-align: center;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+.box input[type="text"],.box input[type="password"]
+{
+border: 0;
+background: none;
+display: inline-block;
+margin: 20px auto;
+text-align: center;
+border:3px solid #0367fd;
+padding:14px 10px;
+width:220px;
+outline: none;
+color: white;
+border-radius: 24px;
+transition:0.25px;
+}
+
+.box input[type="text"]:focus,.box input[type="password"]:focus{
+
+width:270px;
+border-color: #ffc400ec;
+
+}
+.box input[type="submit"]{
+
+
+    border: 0;
+background: none;
+display: block;
+margin: 20px auto;
+text-align: center;
+border:3px solid #ffc400ec;
+padding:14px 35px;
+outline: none;
+color: white;
+border-radius: 24px;
+transition:0.25px;
+cursor:pointer;
+    
+}
+.box input[type="submit"]:hover{
+    background: #ffc400ec;
 }
 
 .about{
