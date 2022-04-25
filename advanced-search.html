@@ -10,7 +10,7 @@
     <meta name="Author Z" content="Deontae A.">
     <meta name="Author Z" content="Anshul N.">
 
-    <link href="Client-Side-Financial.css" rel="stylesheet"/>
+    <link href="advanced-search.css" rel="stylesheet"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -19,131 +19,144 @@
     <title>Search results</title>
 </head>
 
-<div class="hero">
-    <nav>
-        <h2 class="logo">Client-side<span> Financial</span></h2>
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Services</a></li>
-        </ul>
-        <a href="#" class="signUpButton">Sign up / Log in</a>
-    </nav>
-</div>
+
 
 <body>
-<div class = container>
-    <div class="search-bar-wrapper">
-        <div class="home-search">
-            <h2 class="title">Find Your Next Home or Rental Property</h2>
-            <blockquote id="block">The heart is where the home is</blockquote>
-            <div class="home-search-box">
-                <form class="home-search-box-form" id="search-box-form">
-                    <input type="text" id="search-content" class="search-content" placeholder="Enter a City" oninput="checkCity()">
-                    <select class="search-content" placeholder="max beds" id="max-bedroom">
-                        <option value="null">Any</option>
-                        <option value="1"> 1 Bedroom</option>
-                        <option value="2"> 2 Bedrooms</option>
-                        <option value="3"> 3 Bedrooms</option>
-                        <option value="4"> 4 Bedrooms</option>
-                        <option value="5"> 5 Bedrooms</option>
-                        <option value="6"> 6 Bedrooms</option>
-                        <option value="7"> 7 Bedrooms</option>
-                    </select>
-                    <select class="search-content" placeholder="max baths" id="max-bathroom">
-                        <option value="null">Any</option>
-                        <option value="1"> 1 Bathroom</option>
-                        <option value="2"> 2 Bathrooms</option>
-                        <option value="3"> 3 Bathrooms</option>
-                        <option value="4"> 4 Bathrooms</option>
-                        <option value="5"> 5 Bathrooms</option>
-                        <option value="6"> 6 Bathrooms</option>"
-                        <option value="7"> 7 Bathrooms</option>"
-                        <option value="8"> 8 Bathrooms</option>"
-                    </select>
-                    <select class="search-content" placeholder="max price" id="max-price">
-                        <option value="null">Any</option>
-                        <option value="50000"> $50,000</option>
-                        <option value="100000"> $100,000 </option>
-                        <option value="150000"> $150,000 </option>
-                        <option value="200000"> $200,000 </option>
-                        <option value="250000"> $250,000 </option>"
-                        <option value="300000"> $300,000</option>"
-                        <option value="350000"> $350,000</option>"
-                        <option value="500000"> $500,000 </option>"
-                        <option value="1000000"> $1,000,000 </option>"
-                        <option value="15000000"> $1,500,000 </option>"
-                        <option value="3000000"> $3,000,000 </option>"
-                    </select>
-                    <select class=" search-content" id="sale-rent">
-                        <option value="for-sale?">Buy</option>
-                        <option value="for-rent?">Rent</option>
-                    </select>
-                    <button type="submit" class="search-button-btn" id="search-btn">
-                        <i class="fas fa-search"></i>
-                    </button>
-                </form>
-            </div>
-        </div>
-
-        <div class="home-result">
-            <h2 class="title">Your Search Results:</h2>
-            <div id="home">
-                <!--Home item-->
-
-                <!--End of home item-->
-
-            </div>
-        </div>
-
-        <!--<div class="home-details">
-            &lt;!&ndash; Home close button&ndash;&gt;
-            <button type="button" class="btn home-close btn" id="home-close-btn">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-        <div class="home-details-content">
-            <h2 class="home-title">3623 w Wolfram St.</h2>
-            <p class="home-price">$180,000</p>
-            <p class="home-bed-num">4 beds</p>
-            <p class="home-bath">2 baths</p>
-            <div class="home-detailed" id="home-deleailed">
-                <h3>Home Details</h3>
-                <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                    sed do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                    laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                    in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                    pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
-                    qui officia deserunt mollit anim id est laborum."</p>
-            </div>
-            <div class="images/home-img">
-                <img src="images/homes.jpeg" alt="home">
-            </div>
-            <div class="home-link">
-                <a href="#" target="_blank">Check out this house</a>
-            </div>-->
-
-        </div>
+    <div class="hero">
+        <a href="login.html" class="signUpButton">Sign up / Log in</a>
+            <nav>
+                <h2 class="logo"><img rel = "log" type = "image/png" src = "img/favicon.png">ATND<span> Real Estate</span></h2>
+                <div class="openMenu">
+                <li class="fa fa-bars"></li>
+                  </div>
+                  <ul class="mainMenu">
+                    <li><a href="Client-Side-Financial.html">Home</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#about">About</a></li>
+                     <div class="closeMenu"><i class="fa fa-times"></i></div>
+                  </ul>
+            </nav>
+    
     </div>
+    <div class = container>
+        <div class="search-bar-wrapper">
+            <div class="home-search">
+                <h2 class="title">Find Your Next Home or Rental Property</h2>
+                <blockquote id="block">Home is where the heart is. Don't miss your opportunity for true love</blockquote>
+                <div class="home-search-box">
+                    <form class="home-search-box-form" id="search-box-form"><br><br>
+                        <input type="text" id="search-content" class="search-content" placeholder="Enter a City" oninput="checkCity()"action ="advanced-search.html">
+                        <br><br> <select class="search-content" placeholder="max beds" id="max-bedroom">
+                            <option value="null">Any</option>
+                            <option value="1"> 1 Bedroom</option>
+                            <option value="2"> 2 Bedrooms</option>
+                            <option value="3"> 3 Bedrooms</option>
+                            <option value="4"> 4 Bedrooms</option>
+                            <option value="5"> 5 Bedrooms</option>
+                            <option value="6"> 6 Bedrooms</option>
+                            <option value="7"> 7 Bedrooms</option>
+                        </select><br><br><br>
 
-    <!------Contact Us------>
-    <div class="contact-us">
-        <p>Let Us Provide You The Best Housing</p>
-        <a class="button-two" href="#">Hire our team</a>
-    </div>
+                        <select class="search-content" placeholder="max baths" id="max-bathroom">
+                            <option value="null">Any</option>
+                            <option value="1"> 1 Bathroom</option>
+                            <option value="2"> 2 Bathrooms</option>
+                            <option value="3"> 3 Bathrooms</option>
+                            <option value="4"> 4 Bathrooms</option>
+                            <option value="5"> 5 Bathrooms</option>
+                            <option value="6"> 6 Bathrooms</option>"
+                            <option value="7"> 7 Bathrooms</option>"
+                            <option value="8"> 8 Bathrooms</option>"
+                        </select><br><br><br>
+                        <select class="search-content" placeholder="max price" id="max-price">
+                            <option value="null">Any</option>
+                            <option value="50000"> $50,000</option>
+                            <option value="100000"> $100,000 </option>
+                            <option value="150000"> $150,000 </option>
+                            <option value="200000"> $200,000 </option>
+                            <option value="250000"> $250,000 </option>"
+                            <option value="300000"> $300,000</option>"
+                            <option value="350000"> $350,000</option>"
+                            <option value="500000"> $500,000 </option>"
+                            <option value="1000000"> $1,000,000 </option>"
+                            <option value="15000000"> $1,500,000 </option>"
+                            <option value="3000000"> $3,000,000 </option>"
+                        </select><br><br><br>
+                        <select class=" search-content" id="sale-rent">
+                            <option value="for-sale?">Buy</option>
+                            <option value="for-rent?">Rent</option>
+                        </select>
+                        <button type="submit" class="search-button-btn" id="search-btn">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
 
-    <!------Social media start--------->
-    <footer>
-        <p>Client-side Financial</p>
-        <p>For more assistance, feel free to reach out to use on our various social media</p>
-        <div class="social">
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
+    
+            <div class="home-result">
+                <h2 class="title">Your Search Results:</h2>
+                <div id="home">
+                    <!--Home item-->
+    
+                    <!--End of home item-->
+    
+                </div>
+            </div>
+    <div class="preview-wrapper">
+		<div id="preview-search">
+			<!--Houses will be placed here dynamically-->
+		</div>
+	</div>
+            <!--<div class="home-details">
+                &lt;!&ndash; Home close button&ndash;&gt;
+                <button type="button" class="btn home-close btn" id="home-close-btn">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="home-details-content">
+                <h2 class="home-title">3623 w Wolfram St.</h2>
+                <p class="home-price">$180,000</p>
+                <p class="home-bed-num">4 beds</p>
+                <p class="home-bath">2 baths</p>
+                <div class="home-detailed" id="home-deleailed">
+                    <h3>Home Details</h3>
+                    <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore magna
+                        aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                        in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
+                        qui officia deserunt mollit anim id est laborum."</p>
+                </div>
+                <div class="images/home-img">
+                    <img src="images/homes.jpeg" alt="home">
+                </div>
+                <div class="home-link">
+                    <a href="#" target="_blank">Check out this house</a>
+                </div>-->
+    
+            </div>
         </div>
-        <p class="end">Copyleft by Client-side Financial Inc.</p>
-    </footer>
-
-    <script src="advanced-search.js"></script>
-
-</body>
+    
+        <!------Contact Us------>
+        <div class="contact-us">
+            <p>Let Us Provide You The Best Housing</p>
+            <a class="button-two" href="#">Hire our team</a>
+        </div>
+    
+        <!------Social media start--------->
+        <footer>
+            <p>Client-side Financial</p>
+            <p>For more assistance, feel free to reach out to use on our various social media</p>
+            <div class="social">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+            </div>
+            <p class="end">Copyleft by Client-side Financial Inc.</p>
+        </footer>
+    
+        <script src="advanced-search.js"></script>
+    
+    </body>
