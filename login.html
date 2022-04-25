@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel = "icon" type = "image/png" href="img/favicon.png"/><title >ATND Real Estate</title>
+	<link rel="stylesheet" type="text/css" href="login.css">
+
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	
+
+
+</head>
+<body>
+	<!----hero image section start---->
+    <div class="hero">
+		<nav>
+			<h2 class="logo"><img rel = "log" type = "image/png" src = "img/favicon.png">ATND<span> Real Estate</span></h2>
+			<div class="openMenu">
+				<li class="fa fa-bars"></li>
+			  </div>
+			  <ul class="mainMenu">
+				<li><a href="#" class="active">Home</a></li>
+				<li><a href="#">Services</a></li>
+				<li><a href="#about">About</a></li>
+				 <div class="closeMenu"><i class="fa fa-times"></i></div>
+			  </ul>
+		</nav>
+
+	</div>
+
+	<!---login form------------------>
+	<form class="box" action="login.html" method="POST">
+
+	<h3>
+    login
+	</h3>
+	
+	<input type="text" name="" placeholder="Enter Username" id="username">
+	<input type="password" name="" placeholder="Enter Password" id="password">
+	<input type="submit" name="" onclick="validate(); return false;" value="Login" >
+	<input type="submit" name="" onclick="signup(); return false;" value="Signup" >
+
+
+	</form>
+	<!----About us section start---->
+	<section class="about">
+		<div class="main">
+			<img src="img/main-img.jpg" alt="computer">
+			<div class="about-text">
+				<h2>About Us</h2>
+				<h5>Dedicated Financial Analysts <span>And Proficient Programmers</span></h5>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Cursus in hac habitasse platea dictumst quisque. Consectetur adipiscing elit duis tristique sollicitudin nibh sit amet. Ut tristique et egestas quis ipsum suspendisse ultrices gravida dictum.</p>
+				<button type="button">Let's Chat</button>
+			</div>
+		</div>
+	</section>
+
+	<!-----service section start----------->
+	<div class="service">
+		<div class="title">
+			<h2>Our Services</h2>
+		</div>
+
+		</div>
+	</div>
+
+	<!------Contact Us------>
+	<div class="contact-us">
+		<p>Let Us Provide You The Best Housing</p>
+		<a class="button-two" href="#">Hire our team</a>
+	</div>
+
+	<!------Social media start--------->
+	<footer>
+		<p>Client-side Financial</p>
+		<p>For more assistance, feel free to reach out to use on our various social media</p>
+		<div class="social">
+			<a href="#"><i class="fab fa-instagram"></i></a>
+			<a href="#"><i class="fab fa-twitter"></i></a>
+			<a href="#"><i class="fab fa-facebook-f"></i></a>
+		</div>
+		<p class="end">Copyleft by Client-side Financial Inc.</p>
+	</footer>
+	<script src="login.js"></script>
+</body>
+</html>
