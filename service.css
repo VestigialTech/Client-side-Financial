@@ -178,7 +178,7 @@ nav .closeMenu{
 	height: auto;
 }
 .title h2{
-	visibility: hidden;
+	align-items: flex-start;
 }
 
 }
@@ -512,13 +512,8 @@ footer p:nth-child(2){
 	font-size: 14px; 
 }
 .preview-wrapper img {
-	position: absolute;
-	 height: 20%;
-	 width: 20%;
-	 
-}
-.preview-wrapper img:hover {
-	cursor: pointer;
+	 height: 250px;
+	 width: 250px;
 	 
 }
 .preview-wrapper{
@@ -545,52 +540,19 @@ div.home-result{
 	background: #191919;
 	color:white;
 }
-input.search-content{
+select.state{
 	position: absolute;
-	top:110px;
+	top:210px;
 	padding: 8px;
 	border-radius: 3rem;
 	border: 3px solid rgb(90, 50, 168);
 	
 }
-#max-bedroom{
+select.rent-buy{
 	position: absolute;
-	
+	top:210px;
 	padding: 8px;
-	
-	border-radius: 3rem;
-	border: 3px solid rgb(90, 50, 168);
-}
-#max-bathroom{
-	position: absolute;
-	
-	padding: 8px;
-	
-	border-radius: 3rem;
-	border: 3px solid rgb(90, 50, 168);
-}
-#max-price{
-	position: absolute;
-	
-	padding: 8px;
-	
-	border-radius: 3rem;
-	border: 3px solid rgb(90, 50, 168);
-}
-#search-btn{
-	position: absolute;
 	left: 200px;
-	padding: 5px 0 5px ;
-	width: 60px;
-	height:30px;
-	border-radius: 3rem;
-	border: 3px solid rgb(90, 50, 168);
-}
-#sale-rent{
-	position: absolute;
-	
-	padding: 8px;
-	
 	border-radius: 3rem;
 	border: 3px solid rgb(90, 50, 168);
 }
