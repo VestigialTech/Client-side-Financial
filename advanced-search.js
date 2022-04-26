@@ -78,7 +78,7 @@ document.getElementById("search-btn").addEventListener("click", function (event)
             <div class="images/home-img" >
                 <img src="${primaryPhoto}" style="border-radius: 50px;
 border-color: rgb(90, 50, 168);
-padding: 20px;
+padding: 10px;
 display: flex;
 flex-direction: column;
 align-items: center;
@@ -117,9 +117,44 @@ async function fullPropertyDetails(event) {
     try {
         fetch(`https://us-real-estate.p.rapidapi.com/property-detail?property_id=${event.target.id}`, options)
             .then(response => response.json())
-            .then(response => console.log(response))
-            .catch(err => console.error(err));
+            .then(data => displayPropDetails(data))
+            .catch(err => console.error(err))
     } catch(err) {
         alert("No property details available")
-
     }}
+
+//modal taken from w3schools example
+let myModal = document.getElementById("myModal");
+myModal.style.display = "none";
+
+async function displayPropDetails(data){
+    if(data != null) {
+        console.log("displayPropDetails", data);
+        document.getElementById("some-text").innerHTML = data.data.list_date;
+        myModal.style.display = "block";
+    }
+}
+
+//closes modal display of property details
+function  onCloseModal() {
+    myModal.style.display = "none";
+}
+
+function traverse(o,func) {
+    for (var i in o) {
+        func.apply(this,[i,o[i]]);
+        if (o[i] !== null && typeof(o[i])=="object") {
+            if(key === 'text'&& value !== null)
+            {var propDescription = [];
+                propDescription += (key + " : "+value);
+                console.log(propDescription)}
+            if(key === 'photo' && value !== null){
+                var photos = new Object;
+                photos += (key + " : "+value);
+                console.log(photos)}//going one step down in the object tree!!
+            traverse(o[i],func);
+        }
+    }
+}
+
+

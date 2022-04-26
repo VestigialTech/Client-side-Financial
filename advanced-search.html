@@ -46,9 +46,9 @@
                 <div class="home-search-box">
                     <form class="home-search-box-form" id="search-box-form"><br><br>
                         <input type="text" id="search-content" class="search-content" placeholder="Enter a City" oninput="checkCity()"action ="advanced-search.html">
-                        <br><br>
+
                         <select class="search-content" placeholder="min beds" id="min-bedroom">
-                            <option value="null">Any</option>
+                            <option value="null">min beds</option>
                             <option value="1"> 1 Bedroom</option>
                             <option value="2"> 2 Bedrooms</option>
                             <option value="3"> 3 Bedrooms</option>
@@ -56,9 +56,9 @@
                             <option value="5"> 5 Bedrooms</option>
                             <option value="6"> 6 Bedrooms</option>
                             <option value="7"> 7 Bedrooms</option>
-                        </select><br><br><br>
+                        </select>
                         <select class="search-content" placeholder="max beds" id="max-bedroom">
-                            <option value="null">Any</option>
+                            <option value="null">max beds</option>
                             <option value="1"> 1 Bedroom</option>
                             <option value="2"> 2 Bedrooms</option>
                             <option value="3"> 3 Bedrooms</option>
@@ -66,9 +66,9 @@
                             <option value="5"> 5 Bedrooms</option>
                             <option value="6"> 6 Bedrooms</option>
                             <option value="7"> 7 Bedrooms</option>
-                        </select><br><br><br>
+                        </select>
                         <select class="search-content" placeholder="min baths" id="min-bathroom">
-                            <option value="null">Any</option>
+                            <option value="null">min baths</option>
                             <option value="1"> 1 Bathroom</option>
                             <option value="2"> 2 Bathrooms</option>
                             <option value="3"> 3 Bathrooms</option>
@@ -77,9 +77,9 @@
                             <option value="6"> 6 Bathrooms</option>"
                             <option value="7"> 7 Bathrooms</option>"
                             <option value="8"> 8 Bathrooms</option>"
-                        </select><br><br><br>
+                        </select>
                         <select class="search-content" placeholder="max baths" id="max-bathroom">
-                            <option value="null">Any</option>
+                            <option value="null">max baths</option>
                             <option value="1"> 1 Bathroom</option>
                             <option value="2"> 2 Bathrooms</option>
                             <option value="3"> 3 Bathrooms</option>
@@ -88,9 +88,9 @@
                             <option value="6"> 6 Bathrooms</option>"
                             <option value="7"> 7 Bathrooms</option>"
                             <option value="8"> 8 Bathrooms</option>"
-                        </select><br><br><br>
+                        </select>
                         <select class="search-content" placeholder="min price" id="min-price">
-                            <option value="null">Any</option>
+                            <option value="null">min price</option>
                             <option value="50000"> $50,000</option>
                             <option value="100000"> $100,000 </option>
                             <option value="150000"> $150,000 </option>
@@ -99,9 +99,9 @@
                             <option value="300000"> $300,000</option>"
                             <option value="350000"> $350,000</option>"
                             <option value="500000"> $500,000 </option>"
-                        </select><br><br><br>
+                        </select>
                         <select class="search-content" placeholder="max price" id="max-price">
-                            <option value="null">Any</option>
+                            <option value="null">max price</option>
                             <option value="50000"> $50,000</option>
                             <option value="100000"> $100,000 </option>
                             <option value="150000"> $150,000 </option>
@@ -113,14 +113,14 @@
                             <option value="1000000"> $1,000,000 </option>"
                             <option value="15000000"> $1,500,000 </option>"
                             <option value="3000000"> $3,000,000 </option>"
-                        </select><br><br><br>
+                        </select>
                         <select class="search-content" placeholder="property type" id="prop-type">
-                            <option value="null">Any</option>
+                            <option value="null">property type</option>
                             <option value="multi_family"> multi_family</option>
                             <option value="single_family"> single_family </option>
                             <option value="land"> land </option>
                             <option value="farm"> farm </option>
-                        </select><br><br><br>
+                        </select>
                         <select class=" search-content" id="sale-rent">
                             <option value="for-sale?">Buy</option>
                             <option value="for-rent?">Rent</option>
@@ -142,41 +142,20 @@
     
                 </div>
             </div>
-    <div class="preview-wrapper">
-		<div id="preview-search">
+    <div class="preview-wrapper columns">
+
 			<!--Houses will be placed here dynamically-->
-		</div>
 	</div>
-            <!--<div class="home-details">
-                &lt;!&ndash; Home close button&ndash;&gt;
-                <button type="button" class="btn home-close btn" id="home-close-btn">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div class="home-details-content">
-                <h2 class="home-title">3623 w Wolfram St.</h2>
-                <p class="home-price">$180,000</p>
-                <p class="home-bed-num">4 beds</p>
-                <p class="home-bath">2 baths</p>
-                <div class="home-detailed" id="home-deleailed">
-                    <h3>Home Details</h3>
-                    <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore magna
-                        aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                        in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
-                        qui officia deserunt mollit anim id est laborum."</p>
+            <!-- The Modal -->
+            <div id="myModal" class="modal">
+
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <span class="close" onclick="onCloseModal()">&times;</span>
+                    <p id="some-text">Some text in the Modal..</p>
                 </div>
-                <div class="images/home-img">
-                    <img src="images/homes.jpeg" alt="home">
-                </div>
-                <div class="home-link">
-                    <a href="#" target="_blank">Check out this house</a>
-                </div>-->
-    
+
             </div>
-        </div>
     
         <!------Contact Us------>
         <div class="contact-us">
