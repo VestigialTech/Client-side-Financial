@@ -1,4 +1,4 @@
-"use strict"
+var table = JSON.parse(localStorage.getItem('FavArr'));
 const mainMenu = document.querySelector('.mainMenu');
 const closeMenu = document.querySelector('.closeMenu');
 const openMenu = document.querySelector('.openMenu');
@@ -196,12 +196,11 @@ async function fullPropertyDetails(event) {
 
 function addToFavs(event){
     
-    console.log(event.target.id);
+    //console.log(event.target.id);
     favArr.push(event.target.id);
     console.log(favArr);
     localStorage.setItem('FavArr',JSON.stringify(favArr));
 }
-
 
 //modal taken from w3schools example
 let myModal = document.getElementById("myModal");
@@ -210,10 +209,7 @@ myModal.style.display = "none";
 async function displayPropDetails(data){
     if(data != null) {
         console.log("displayPropDetails", data);
-        const listDate =document.getElementById("some-text").innerHTML = data.data?.list_date;
-        const pnType = data.data.advertisers[0].office.phones[0]?.type;
-        const phone = document.getElementById("advertiser-pn").innerHTML = 'Phone Number: ' + data.data.advertisers[0].office.phones[0]?.number + ' Type: ' + pnType;
-        const description = document.getElementById("prop-description").innerHTML = 'Description: ' + data.data.description.text;
+        document.getElementById("some-text").innerHTML = data.data.list_date;
         myModal.style.display = "block";
     }
 }
@@ -239,5 +235,7 @@ function traverse(o,func) {
         }
     }
 }
+
+
 
 

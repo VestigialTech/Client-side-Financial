@@ -118,6 +118,7 @@ if(user_table.check_key_value(username,password))
 {
     alert("login successful");
     localStorage.setItem('username',JSON.stringify(username))
+    localStorage.setItem('table',JSON.stringify(user_table))
     location.href='Client-Side-Financial-After-Login.html';
     return false;
 

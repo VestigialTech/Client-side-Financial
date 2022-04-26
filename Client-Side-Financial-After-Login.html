@@ -17,11 +17,7 @@
 		<a href="Client-Side-Financial.html" class="signout">Sign Out</a>
 		<a href="#" id= "user" class="signUpButton">Sign up / Log in</a>
 		<a href="#" id="favs" class="favorites">Favorites</a>
-		<script>
-			var username = localStorage.getItem('username');
-			username = username.replace(/['"]+/g, '');
-			document.getElementById("user").innerHTML = username;
-		</script>
+		<script src = "after-login.js"></script>
 		<nav>
 			<h2 class="logo"><img rel = "log" type = "image/png" src = "img/favicon.png">ATND<span> Real Estate</span></h2>
 			<div class="openMenu">
@@ -45,6 +41,9 @@
 					<!---note for group; change "text" if expecting different result--->
 					<input type="submit" name="submit" value="submit">
 				</form>
+				<form>
+					<input id="advanced-search-button" type="button" onclick="location.href='advanced-search.html';" value="Advanced Search" />
+				 </form>
 			</div>
 		</div>
 	</div>
@@ -123,6 +122,5 @@
 		</div>
 		<p class="end">Copyleft by Client-side Financial Inc.</p>
 	</footer>
-	<script src="Client-Side-Financial.js"></script>
 </body>
 </html>
