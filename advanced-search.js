@@ -48,9 +48,10 @@ document.getElementById("search-btn").addEventListener("click", function (event)
     let maxPrice = document.getElementById('max-price').value || '';
     let minPrice = document.getElementById('min-price').value || '';
     let saleOrRent = document.getElementById('sale-rent').value || 'for-sale?';
+    let propType = document.getElementById('prop-type').value || '';
 
     try {
-        fetch(`https://us-real-estate.p.rapidapi.com/v2/${saleOrRent}offset=0&limit=200&state_code=${state}&city=${city}&sort=newest&price_min=${minPrice}&price_max=${maxPrice}beds_min=${minBeds}&beds_max=${maxBeds}&baths_min=${minBathrooms}&baths_max=${maxBathrooms}`, options)
+        fetch(`https://us-real-estate.p.rapidapi.com/v2/${saleOrRent}offset=0&limit=200&state_code=${state}&city=${city}&sort=newest&price_min=${minPrice}&price_max=${maxPrice}beds_min=${minBeds}&beds_max=${maxBeds}&baths_min=${minBathrooms}&baths_max=${maxBathrooms}&property_type=${propType}`, options)
             .then(response => response.json())
             .then(response => {
                 let counter = 0;
