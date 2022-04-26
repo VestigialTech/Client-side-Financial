@@ -130,7 +130,10 @@ myModal.style.display = "none";
 async function displayPropDetails(data){
     if(data != null) {
         console.log("displayPropDetails", data);
-        document.getElementById("some-text").innerHTML = data.data.list_date;
+        const listDate =document.getElementById("some-text").innerHTML = data.data?.list_date;
+        const pnType = data.data.advertisers[0].office.phones[0]?.type;
+        const phone = document.getElementById("advertiser-pn").innerHTML = 'Phone Number: ' + data.data.advertisers[0].office.phones[0]?.number + ' Type: ' + pnType;
+        const description = document.getElementById("prop-description").innerHTML = 'Description: ' + data.data.description.text;
         myModal.style.display = "block";
     }
 }
