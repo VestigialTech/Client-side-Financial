@@ -420,7 +420,7 @@ h5{
 }
 .card .button:hover{
 	transition: .8s;
-	border: 2px solid rgb(90, 50, 168);
+	border: 2px solid rgb(90,50, 168);
 	background-color: rgb(142, 50, 168);
 	cursor: pointer;
 }
