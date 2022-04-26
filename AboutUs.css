@@ -21,7 +21,7 @@
 	height: 100vh;
 	width: 100%;
 	background-position: center;
-	background-image: url(img/background.jpg);
+	background-color: #252525;
 	background-size: cover;
 }
 .hero::before{
@@ -161,6 +161,7 @@ nav .closeMenu{
    }
    
 .about{
+    position: absolute;
 	overflow:hidden;
 	padding-top: -100px;
 	background-color: #191919;
@@ -335,8 +336,10 @@ h5{
 }
 
 .about{
+    top: 210px;;
+    position:absolute;
 	width: 100%;
-	padding: 100px 0;
+	padding: 0 0;
 	background-color: #191919;
 }
 .about img{
@@ -541,7 +544,6 @@ div.home-result{
 	color:white;
 }
 select.state{
-	display: none;
 	position: absolute;
 	top:210px;
 	padding: 8px;
@@ -550,7 +552,6 @@ select.state{
 	
 }
 select.rent-buy{
-	display: none;
 	position: absolute;
 	top:210px;
 	padding: 8px;
