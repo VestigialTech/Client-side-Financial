@@ -178,7 +178,7 @@ nav .closeMenu{
 	height: auto;
 }
 .title h2{
-	align-items: flex-start;
+	visibility: hidden;
 }
 
 }

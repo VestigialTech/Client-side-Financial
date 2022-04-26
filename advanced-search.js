@@ -86,15 +86,19 @@ justify-content: center;
 position: relative;
 height: 400px;" id="home-picture" alt="home images">
             </div>
-		<div class="home-descriptions">
-		    <h5 class="description-of-home" id="listing-price"> $ ${price} </h5>
-		    <h5 class="description-of-home" id="bed-count">Bedroom/s: ${bedrooms}</h5>
-		    <h5 class="description-of-home" id="bath-count">Bath/s: ${baths}</h5>
-			<h5 class="description-of-home" id="branding">Company: ${brand}</h5>
-			<h5 class="description-of-home" id="address">Address: ${address}</h5>
+		<div class="home-descriptions"><ul class =" preview-home-descriptions"><li>
+		    <p class="description-of-home" id="listing-price"> Price: $${price} </p>
+		    <p class="description-of-home" id="bed-count">Bedroom/s: ${bedrooms}</p>
+		    <p class="description-of-home" id="bath-count">Bath/s: ${baths}</p>
+			<p class="description-of-home" id="branding">Company: ${brand}</p>
+			<p class="description-of-home" id="address">Address: ${address}</p></li></lu>
 			<button type="button" class="view-home-button" id=${propertyId} onclick="fullPropertyDetails(event)"> View Listing
                         <i class="fas fa-search"></i>
             </button> 
+            <button type="button" class="add-as-favorites" id="favorites" onclick="
+            "> Favorite
+                        <i class="fas fa-heart"></i>
+            </button>
 		</div>
        </div>
 		`;
