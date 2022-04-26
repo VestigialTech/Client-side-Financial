@@ -1,4 +1,21 @@
 "use strict"
+const mainMenu = document.querySelector('.mainMenu');
+const closeMenu = document.querySelector('.closeMenu');
+const openMenu = document.querySelector('.openMenu');
+
+
+openMenu.addEventListener('click',show);
+closeMenu.addEventListener('click',close);
+
+function show(){
+    mainMenu.style.display = 'flex';
+    mainMenu.style.top = '0';
+}
+function close(){
+    mainMenu.style.top = '-110%';
+}
+"use strict"
+
 
 const options = {
     method: 'GET',
@@ -25,12 +42,15 @@ document.getElementById("search-btn").addEventListener("click", function (event)
     let city = document.getElementById('search-content').value;
     let state = document.getElementById('search-content').value;
     let maxBeds = document.getElementById('max-bedroom').value || '';
+    let minBeds = document.getElementById('min-bedroom').value || '';
     let maxBathrooms = document.getElementById('max-bathroom').value || '';
+    let minBathrooms = document.getElementById('min-bathroom').value || '';
     let maxPrice = document.getElementById('max-price').value || '';
+    let minPrice = document.getElementById('min-price').value || '';
     let saleOrRent = document.getElementById('sale-rent').value || 'for-sale?';
 
     try {
-        fetch(`https://us-real-estate.p.rapidapi.com/v2/${saleOrRent}offset=0&limit=200&state_code=${state}&city=${city}&sort=newest&price_max=${maxPrice}&beds_max=${maxBeds}&baths_max=${maxBathrooms}`, options)
+        fetch(`https://us-real-estate.p.rapidapi.com/v2/${saleOrRent}offset=0&limit=200&state_code=${state}&city=${city}&sort=newest&price_min=${minPrice}&price_max=${maxPrice}beds_min=${minBeds}&beds_max=${maxBeds}&baths_min=${minBathrooms}&baths_max=${maxBathrooms}`, options)
             .then(response => response.json())
             .then(response => {
                 let counter = 0;
@@ -53,9 +73,17 @@ document.getElementById("search-btn").addEventListener("click", function (event)
                      }
                      counter++; //Counter iterates through each listing to retrieve property details, properties are then placed into html
                     document.getElementById('home').innerHTML += `
-		<div class="home-item">
+		<div style="border-color: white" class="home-item">
             <div class="images/home-img" >
-                <img src="${primaryPhoto}" id="image" alt="home images">
+                <img src="${primaryPhoto}" style="border-radius: 50px;
+border-color: rgb(90, 50, 168);
+padding: 20px;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+position: relative;
+height: 400px;" id="home-picture" alt="home images">
             </div>
 		<div class="home-descriptions">
 		    <h5 class="description-of-home" id="listing-price"> $ ${price} </h5>
@@ -63,7 +91,9 @@ document.getElementById("search-btn").addEventListener("click", function (event)
 		    <h5 class="description-of-home" id="bath-count">Bath/s: ${baths}</h5>
 			<h5 class="description-of-home" id="branding">Company: ${brand}</h5>
 			<h5 class="description-of-home" id="address">Address: ${address}</h5>
-			<a href="#" class="view-home-button">View Listing</a>
+			<button type="button" class="view-home-button" id=${propertyId} onclick="fullPropertyDetails(event)"> View Listing
+                        <i class="fas fa-search"></i>
+            </button> 
 		</div>
        </div>
 		`;
@@ -80,3 +110,15 @@ function isNull(obj){
        return true;
     }
 }
+
+async function fullPropertyDetails(event) {
+    console.log(event.target.id);
+    try {
+        fetch(`https://us-real-estate.p.rapidapi.com/property-detail?property_id=${event.target.id}`, options)
+            .then(response => response.json())
+            .then(response => console.log(response))
+            .catch(err => console.error(err));
+    } catch(err) {
+        alert("No property details available")
+
+    }}
