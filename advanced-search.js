@@ -2,7 +2,83 @@
 const mainMenu = document.querySelector('.mainMenu');
 const closeMenu = document.querySelector('.closeMenu');
 const openMenu = document.querySelector('.openMenu');
+//Loading in the variables for getting user information post-login
+var table = JSON.parse(localStorage.getItem('table'));
+var username = localStorage.getItem('username');
 
+//Logic to add the username on the login page
+username = username.replace(/['"]+/g, '');
+document.getElementById("user").innerHTML = username;
+
+//Redefining the same HashTable class due to export/import issue
+//Mentioned the issue in the report under Restrictions 
+class HashTable {
+    constructor() {
+      this.table = new Array(50);
+      this.size = 0;
+    }
+    _hash(key) {
+      let hash = 0;
+      for (let i = 0; i < key.length; i++) {
+        hash += key.charCodeAt(i);}
+      return hash % this.table.length;
+    }
+  
+    set(key, value) {
+      const index = this._hash(key);
+      this.table[index] = [key, value];
+      this.size++;}
+  
+    get(key) {
+      const target = this._hash(key);
+      return this.table[target];}
+  
+    check_key(key){
+      const target = this.get(key);
+      if(target === undefined){return false;}
+      else return true;
+    }
+
+    //Created this custom helper method to recreate the hashtable 
+    //by reading the local storage table imported from login.js
+    make_Hash_Table(arr){
+        var atb = arr['table'];
+        console.log(atb);
+        //tab = new HashTable();
+        Object.keys(atb).forEach(key => {
+            if(atb[key]!= null){
+            console.log(atb[key])
+            this.set(atb[key][0],atb[key][1])} 
+          });
+    }
+
+    check_key_value(key,val){
+      const target = this.get(key);
+      if(target!==undefined)
+      {
+      const pw = target[1];
+  
+      if(val == pw){
+          return true;
+      }
+      else{
+          return false;
+      }
+      }
+      else{
+          alert("No such username, Please create an account with us");
+      }
+    }
+
+  }
+
+
+var HashTab = new HashTable();
+var FavArr = [];
+var FavDict = {};
+HashTab.make_Hash_Table(table);
+console.log(HashTab);
+localStorage.setItem('table',JSON.stringify(HashTab));
 
 openMenu.addEventListener('click',show);
 closeMenu.addEventListener('click',close);
@@ -38,7 +114,8 @@ function checkCity() {
 //Event listener that grabs user's input values
 document.getElementById("search-btn").addEventListener("click", function (event) {
     event.preventDefault()
-
+    let title = document.getElementById("title");
+    title.style.display = "block";//displays "Your Search Results" when search is button is clicked
     let city = document.getElementById('search-content').value;
     let state = document.getElementById('search-content').value;
     let maxBeds = document.getElementById('max-bedroom').value || '';
@@ -57,7 +134,7 @@ document.getElementById("search-btn").addEventListener("click", function (event)
                 let counter = 0;
                 let cities = response.data.home_search.results //This grabs the json object and to later map and retrieve properties
                  cities.map(city => {
-                     let baths, propertyId, address, bedrooms;
+                     let baths, propertyId, address, bedrooms,propertyId_dup;
                      let price = `${city.list_price}`.toLocaleString();
                      let brand = city.branding[0].name;
                      let primaryPhoto = `${city.primary_photo?.href}`;
@@ -70,6 +147,7 @@ document.getElementById("search-btn").addEventListener("click", function (event)
                          baths = cities[counter].description.baths;
                          bedrooms = cities[counter].description.beds;
                          propertyId = cities[counter].property_id;
+                         propertyId_dup = cities[counter].property_id;
                          address = cities[counter].location.address.line;
                      }
                      counter++; //Counter iterates through each listing to retrieve property details, properties are then placed into html
@@ -95,8 +173,7 @@ height: 400px;" id="home-picture" alt="home images">
 			<button type="button" class="view-home-button" id=${propertyId} onclick="fullPropertyDetails(event)"> View Listing
                         <i class="fas fa-search"></i>
             </button> 
-            <button type="button" class="add-as-favorites" id="favorites" onclick="
-            "> Favorite
+            <button type="button" class="add-as-favorites" id=${propertyId_dup} onclick="addToFavs(event)"> Favorite
                         <i class="fas fa-heart"></i>
             </button>
 		</div>
@@ -131,11 +208,35 @@ async function fullPropertyDetails(event) {
 let myModal = document.getElementById("myModal");
 myModal.style.display = "none";
 
+//Displays extra property details when listings is clicked
 async function displayPropDetails(data){
     if(data != null) {
-        console.log("displayPropDetails", data);
-        document.getElementById("some-text").innerHTML = data.data.list_date;
+    let photo = data.data.photos[1]?.href;
+    document.getElementById('content').innerHTML += `
+      <div class="images/home-img" >
+                <img src="${photo}" style="border-radius: 50px;
+                border-color: rgb(90, 50, 168);
+                padding: 10px;
+                display: block;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+                height: 400px;" alt="home image">
+            </div>`
+        document.getElementById("prop-address").innerHTML = 'Address: ' + data.data.location.address?.line + ' ' + data.data.location.address?.city + ', ' + data.data.location.address?.state_code + ' ' + data.data.location.address?.postal_code;
+        document.getElementById("price").innerHTML = 'Listing Price: $' +  data.data?.list_price.toLocaleString();
+        document.getElementById("bed-bath").innerHTML = 'Bed/s: ' + data.data.description?.beds + ' ' + 'Bath/s: ' + data.data.description?.baths;
+        document.getElementById("brand-company").innerHTML = 'Branding: ' + data.data.branding[1]?.type + ' ' + data.data.branding[1]?.name;
+        document.getElementById("brand-agent").innerHTML = 'Branding: ' + data.data.branding[0]?.type + ' ' + data.data.branding[0]?.name;
+        document.getElementById("date-listed").innerHTML = 'Listing Date: ' + data.data?.list_date;
+        const pnType = data.data.advertisers[0].office.phones[0]?.type;
+        document.getElementById("advertiser-pn").innerHTML = 'Phone Number: ' + data.data.advertisers[0].office.phones[0]?.number + ' Type: ' + pnType;
+        document.getElementById("listing-type").innerHTML = 'Listing Type: ' + data.data.description?.type;
+        document.getElementById("prop-description").innerHTML = 'Description: ' + data.data.description?.text.toLowerCase();
         myModal.style.display = "block";
+
+    }else{
+        alert('No additional property details are available!')
     }
 }
 
@@ -161,4 +262,23 @@ function traverse(o,func) {
     }
 }
 
+
+async function fullFavoritesDetails(event) {
+    FavDict[username] = FavArr;
+    localStorage.setItem('FavDict',JSON.stringify(FavDict));
+    try {
+        fetch(`https://us-real-estate.p.rapidapi.com/property-detail?property_id=${FavArr[0]}`, options)
+            .then(response => response.json())
+            .then(data => displayPropDetails(data))
+            .catch(err => console.error(err))
+    } catch(err) {
+        alert("No property details available")
+    }}
+
+function addToFavs(event){
+    
+    FavArr.push(event.target.id);
+    console.log(FavArr);
+    localStorage.setItem('FavArr',JSON.stringify(FavArr));
+}
 

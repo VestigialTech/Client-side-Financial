@@ -23,7 +23,9 @@
 
 <body>
     <div class="hero">
-        <a href="login.html" class="signUpButton">Sign up / Log in</a>
+        <a href="Client-Side-Financial.html" class="signout">Sign Out</a>
+        <a href="login.html" id= "user" class="signUpButton">Sign up / Log in</a>
+        <a href="#" id="favs" class="favorites" onclick="fullFavoritesDetails(event)">Favorites</a>
             <nav>
                 <h2 class="logo"><img rel = "log" type = "image/png" src = "img/favicon.png">ATND<span> Real Estate</span></h2>
                 <div class="openMenu">
@@ -134,7 +136,7 @@
 
     
             <div class="home-result">
-                <h2 class="title">Your Search Results:</h2>
+                <h2 class="title" id="title">Your Search Results:</h2>
                 <div id="home">
                     <!--Home item-->
     
@@ -150,9 +152,17 @@
             <div id="myModal" class="modal">
 
                 <!-- Modal content -->
-                <div class="modal-content">
+                <div class="modal-content" id="content">
                     <span class="close" onclick="onCloseModal()">&times;</span>
-                    <p id="some-text">Some text in the Modal..</p>
+                    <p id="prop-address">Address</p>
+                    <p id="date-listed">Listing date</p>
+                    <p id="price">Listing price</p>
+                    <p id="bed-bath">Number of beds and bathrooms</p>
+                    <p id="brand-company">Brand company</p>
+                    <p id="brand-agent">Brand agent</p>
+                    <p id="advertiser-pn">Advertiser's phone number</p>
+                    <p id="listing-type">Type of property</p>
+                    <p id="prop-description">Property description</p>
                 </div>
 
             </div>
