@@ -120,7 +120,6 @@ function isNull(obj){
 }
 
 async function fullPropertyDetails(event) {
-    console.log(event.target.id);
     try {
         fetch(`https://us-real-estate.p.rapidapi.com/property-detail?property_id=${event.target.id}`, options)
             .then(response => response.json())
@@ -170,9 +169,6 @@ async function displayPropDetails(data){
 function  onCloseModal() {
     myModal.style.display = "none";
 }
-
-
-
 
 
 function traverse(o,func) {
