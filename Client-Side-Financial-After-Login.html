@@ -17,11 +17,7 @@
 		<a href="Client-Side-Financial.html" class="signout">Sign Out</a>
 		<a href="#" id= "user" class="signUpButton">Sign up / Log in</a>
 		<a href="#" id="favs" class="favorites">Favorites</a>
-		<script>
-			var username = localStorage.getItem('username');
-			username = username.replace(/['"]+/g, '');
-			document.getElementById("user").innerHTML = username;
-		</script>
+		<script src = "after-login.js"></script>
 		<div class="hero">
 			<nav>
 				<h2 class="logo"><img rel = "log" type = "image/png" src = "img/favicon.png">ATND<span> Real Estate</span></h2>
@@ -65,7 +61,6 @@
 	<!----About us section start---->
 	<section class="about">
 		<div class="main">
-			<img src="img/main-img.jpg" alt="computer">
 			<div class="about-text">
 				<h2>About Us</h2>
 				<h5>Dedicated Housing Professionals  <span>and Efficient Realtors</span></h5>
