@@ -18,6 +18,10 @@ if(username !== null){
     username = username.replace(/['"]+/g, '');
     document.getElementById("user").innerHTML = username;
 }
+else{
+  var signoutflag = document.getElementById("signout");
+  signoutflag.style.display = 'none';
+}
 
 var cityinput = localStorage.getItem('cityinp');
 console.log(cityinput);
@@ -81,7 +85,7 @@ if(cityinput!== null || cityinput !== ""){
 			<p class="description-of-home" id="address">Address: ${address}</p></li></lu>
 			<button type="button" class="view-home-button" id=${propertyId} onclick="fullPropertyDetails(event)"> View Listing
                         <i class="fas fa-search"></i>
-            </button> 
+            </button>
             <button type="button" class="add-as-favorites" id=${propertyId_dup} onclick="addToFavs(event)"> Favorite
                         <i class="fas fa-heart"></i>
             </button>
@@ -96,9 +100,9 @@ if(cityinput!== null || cityinput !== ""){
 
 };
 
-                 
+
 //Redefining the same HashTable class due to export/import issue
-//Mentioned the issue in the report under Restrictions 
+//Mentioned the issue in the report under Restrictions
 class HashTable {
     constructor() {
       this.table = new Array(50);
@@ -110,23 +114,23 @@ class HashTable {
         hash += key.charCodeAt(i);}
       return hash % this.table.length;
     }
-  
+
     set(key, value) {
       const index = this._hash(key);
       this.table[index] = [key, value];
       this.size++;}
-  
+
     get(key) {
       const target = this._hash(key);
       return this.table[target];}
-  
+
     check_key(key){
       const target = this.get(key);
       if(target === undefined){return false;}
       else return true;
     }
 
-    //Created this custom helper method to recreate the hashtable 
+    //Created this custom helper method to recreate the hashtable
     //by reading the local storage table imported from login.js
     make_Hash_Table(arr){
         if(table !== null) {
@@ -144,7 +148,7 @@ class HashTable {
       if(target!==undefined)
       {
       const pw = target[1];
-  
+
       if(val == pw){
           return true;
       }
@@ -189,6 +193,9 @@ function checkCity() {
     }
 }
 
+function signoutTasks(){
+  localStorage.removeItem('username');
+}
 //Event listener that grabs user's input values
 document.getElementById("search-btn").addEventListener("click", function (event) {
     event.preventDefault()
@@ -250,7 +257,7 @@ height: 400px;" id="home-picture" alt="home images">
 			<p class="description-of-home" id="address">Address: ${address}</p></li></lu>
 			<button type="button" class="view-home-button" id=${propertyId} onclick="fullPropertyDetails(event)"> View Listing
                         <i class="fas fa-search"></i>
-            </button> 
+            </button>
             <button type="button" class="add-as-favorites" id=${propertyId_dup} onclick="addToFavs(event)"> Favorite
                         <i class="fas fa-heart"></i>
             </button>
@@ -342,15 +349,20 @@ function traverse(o,func) {
 
 //Fetching the first favorite and displaying the request
 async function fullFavoritesDetails(event) {
+    if(username!==null){
     FavDict[username] = FavArr;
     localStorage.setItem('username',username);
     localStorage.setItem('FavDict',JSON.stringify(FavDict));
     location.href = 'Favorites.html';
     return false;
+  }
+  else{
+    alert("Please login first to view favorites");
+  }
 }
 
 function addToFavs(event){
-    
+
     if(event.target.id!= null || event.target.id!= "" || !FavArr.includes(event.target.id)){
     FavArr.push(event.target.id);
     console.log(FavArr);
@@ -358,7 +370,6 @@ function addToFavs(event){
     else{
         alert('Listing already added to favorites!');
     }
-    
+
     localStorage.setItem('FavArr',JSON.stringify(FavArr));
 }
-

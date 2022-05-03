@@ -54,7 +54,7 @@ async function fullPropertyDetails(arr) {
 			<p class="description-of-home" id="address">Address: ${address}</p></li></lu>
 			<button type="button" class="view-home-button" id=${propertyId} onclick="fullPropertyDetails(event)"> View Listing
                         <i class="fas fa-search"></i>
-            </button> 
+            </button>
             <button type="button" class="remove-as-favorites" id=${prop} onclick="removeFromFavs(event)"> Remove Favorite
                         <i class="fas fa-heart"></i>
             </button>
@@ -69,9 +69,12 @@ async function fullPropertyDetails(arr) {
 }
 
 function removeFromFavs(event){
-    
+
     favArr.pop(event.target.id);
     favdict[username] = favArr;
     localStorage.setItem('FavDict',JSON.stringify(favdict));
 }
 
+function signoutTasks(){
+  localStorage.removeItem('username');
+}

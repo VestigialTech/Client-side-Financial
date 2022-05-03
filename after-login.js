@@ -7,7 +7,7 @@ username = username.replace(/['"]+/g, '');
 document.getElementById("user").innerHTML = username;
 
 //Redefining the same HashTable class due to export/import issue
-//Mentioned the issue in the report under Restrictions 
+//Mentioned the issue in the report under Restrictions
 class HashTable {
     constructor() {
       this.table = new Array(50);
@@ -19,23 +19,23 @@ class HashTable {
         hash += key.charCodeAt(i);}
       return hash % this.table.length;
     }
-  
+
     set(key, value) {
       const index = this._hash(key);
       this.table[index] = [key, value];
       this.size++;}
-  
+
     get(key) {
       const target = this._hash(key);
       return this.table[target];}
-  
+
     check_key(key){
       const target = this.get(key);
       if(target === undefined){return false;}
       else return true;
     }
 
-    //Created this custom helper method to recreate the hashtable 
+    //Created this custom helper method to recreate the hashtable
     //by reading the local storage table imported from login.js
     make_Hash_Table(arr){
         var atb = arr['table'];
@@ -44,7 +44,7 @@ class HashTable {
         Object.keys(atb).forEach(key => {
             if(atb[key]!= null){
             console.log(atb[key])
-            this.set(atb[key][0],atb[key][1])} 
+            this.set(atb[key][0],atb[key][1])}
           });
     }
 
@@ -53,7 +53,7 @@ class HashTable {
       if(target!==undefined)
       {
       const pw = target[1];
-  
+
       if(val == pw){
           return true;
       }
@@ -68,6 +68,9 @@ class HashTable {
 
   }
 
+function signoutTasks(){
+    localStorage.removeItem('username');
+}
 
 var HashTab = new HashTable();
 HashTab.make_Hash_Table(table);
