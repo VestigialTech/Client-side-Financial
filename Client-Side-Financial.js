@@ -1,9 +1,13 @@
-
 const mainMenu = document.querySelector('.mainMenu');
 const closeMenu = document.querySelector('.closeMenu');
 const openMenu = document.querySelector('.openMenu');
 
-
+//saving variables to local storage
+var sessionKey = localStorage.getItem('sessionKey');
+if(sessionkey == undefined || sessionkey == null){
+    var sessionkey = "Guest"; 
+    localStorage.setItem('sessionKey',sessionkey);
+}
 openMenu.addEventListener('click',show);
 closeMenu.addEventListener('click',close);
 
@@ -26,14 +30,10 @@ const options = {
 
 //Checks city and state input to conduct a search, returns a message if missing parameters
 function checkCityState() {
-    let cityName = document.getElementById('Query').value;
-    let state = document.getElementById('state').value;
-
-    if (cityName.length !== 0 && state.length !== 0) {
-        document.getElementById('preview-search').innerHTML = '';
-    } else {
-        alert("Enter city and state")
-    }
+    var cityName = document.getElementById('Query').value;
+    localStorage.setItem('cityinp',cityName);
+    location.href = 'advanced-search.html';
+    return false;
 }
 
 //Event listener that grabs user's input value
@@ -80,3 +80,4 @@ document.getElementById("query-listings").addEventListener("click", function (ev
 		`;
             }).catch(err => console.error("Please try your search again"));
         })})
+

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Author + Preferred titles--->
+    <meta name="Author X" content="Nick K.">
+    <meta name="Author Y" content="Tigist T.">
+    <meta name="Author Z" content="Deontae A.">
+    <meta name="Author Z" content="Anshul N.">
+
+    <link href="advanced-search.css" rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Search results</title>
+</head>
+
+
+
+<body>
+    <div class="hero">
+        <a href="Client-Side-Financial.html" class="signout">Sign Out</a>
+        <a href="login.html" id= "user" class="signUpButton">Sign up / Log in</a>
+        <a href="#" id="favs" class="favorites" onclick="fullFavoritesDetails(event)">Favorites</a>
+            <nav>
+                <h2 class="logo"><img rel = "log" type = "image/png" src = "img/favicon.png">ATND<span> Real Estate</span></h2>
+                <div class="openMenu">
+                <li class="fa fa-bars"></li>
+                  </div>
+                  <ul class="mainMenu">
+                    <li><a href="Client-Side-Financial.html">Home</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#about">About</a></li>
+                     <div class="closeMenu"><i class="fa fa-times"></i></div>
+                  </ul>
+            </nav>
+    
+    </div>
+    <div class = container>
+        <div class="search-bar-wrapper">
+            <div class="home-search">
+                <h2 class="title">Find Your Next Home or Rental Property</h2>
+                <blockquote id="block">Home is where the heart is. Don't miss your opportunity for true love</blockquote>
+                <div class="home-search-box">
+                    <form class="home-search-box-form" id="search-box-form"><br><br>
+                        <input type="text" id="search-content" class="search-content" placeholder="Enter a City" oninput="checkCity()"action ="advanced-search.html">
+
+                        <select class="search-content" placeholder="min beds" id="min-bedroom">
+                            <option value="null">min beds</option>
+                            <option value="1"> 1 Bedroom</option>
+                            <option value="2"> 2 Bedrooms</option>
+                            <option value="3"> 3 Bedrooms</option>
+                            <option value="4"> 4 Bedrooms</option>
+                            <option value="5"> 5 Bedrooms</option>
+                            <option value="6"> 6 Bedrooms</option>
+                            <option value="7"> 7 Bedrooms</option>
+                        </select>
+                        <select class="search-content" placeholder="max beds" id="max-bedroom">
+                            <option value="null">max beds</option>
+                            <option value="1"> 1 Bedroom</option>
+                            <option value="2"> 2 Bedrooms</option>
+                            <option value="3"> 3 Bedrooms</option>
+                            <option value="4"> 4 Bedrooms</option>
+                            <option value="5"> 5 Bedrooms</option>
+                            <option value="6"> 6 Bedrooms</option>
+                            <option value="7"> 7 Bedrooms</option>
+                        </select>
+                        <select class="search-content" placeholder="min baths" id="min-bathroom">
+                            <option value="null">min baths</option>
+                            <option value="1"> 1 Bathroom</option>
+                            <option value="2"> 2 Bathrooms</option>
+                            <option value="3"> 3 Bathrooms</option>
+                            <option value="4"> 4 Bathrooms</option>
+                            <option value="5"> 5 Bathrooms</option>
+                            <option value="6"> 6 Bathrooms</option>"
+                            <option value="7"> 7 Bathrooms</option>"
+                            <option value="8"> 8 Bathrooms</option>"
+                        </select>
+                        <select class="search-content" placeholder="max baths" id="max-bathroom">
+                            <option value="null">max baths</option>
+                            <option value="1"> 1 Bathroom</option>
+                            <option value="2"> 2 Bathrooms</option>
+                            <option value="3"> 3 Bathrooms</option>
+                            <option value="4"> 4 Bathrooms</option>
+                            <option value="5"> 5 Bathrooms</option>
+                            <option value="6"> 6 Bathrooms</option>"
+                            <option value="7"> 7 Bathrooms</option>"
+                            <option value="8"> 8 Bathrooms</option>"
+                        </select>
+                        <select class="search-content" placeholder="min price" id="min-price">
+                            <option value="null">min price</option>
+                            <option value="50000"> $50,000</option>
+                            <option value="100000"> $100,000 </option>
+                            <option value="150000"> $150,000 </option>
+                            <option value="200000"> $200,000 </option>
+                            <option value="250000"> $250,000 </option>"
+                            <option value="300000"> $300,000</option>"
+                            <option value="350000"> $350,000</option>"
+                            <option value="500000"> $500,000 </option>"
+                        </select>
+                        <select class="search-content" placeholder="max price" id="max-price">
+                            <option value="null">max price</option>
+                            <option value="50000"> $50,000</option>
+                            <option value="100000"> $100,000 </option>
+                            <option value="150000"> $150,000 </option>
+                            <option value="200000"> $200,000 </option>
+                            <option value="250000"> $250,000 </option>"
+                            <option value="300000"> $300,000</option>"
+                            <option value="350000"> $350,000</option>"
+                            <option value="500000"> $500,000 </option>"
+                            <option value="1000000"> $1,000,000 </option>"
+                            <option value="15000000"> $1,500,000 </option>"
+                            <option value="3000000"> $3,000,000 </option>"
+                        </select>
+                        <select class="search-content" placeholder="property type" id="prop-type">
+                            <option value="null">property type</option>
+                            <option value="multi_family"> multi_family</option>
+                            <option value="single_family"> single_family </option>
+                            <option value="land"> land </option>
+                            <option value="farm"> farm </option>
+                        </select>
+                        <select class=" search-content" id="sale-rent">
+                            <option value="for-sale?">Buy</option>
+                            <option value="for-rent?">Rent</option>
+                        </select>
+                        <button type="submit" class="search-button-btn" id="search-btn">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+    
+            <div class="home-result">
+                <h2 class="title" id="title">Your Search Results:</h2>
+                <div id="home">
+                    <!--Home item-->
+    
+                    <!--End of home item-->
+    
+                </div>
+            </div>
+    <div class="preview-wrapper columns">
+
+			<!--Houses will be placed here dynamically-->
+	</div>
+            <!-- The Modal -->
+            <div id="myModal" class="modal">
+
+                <!-- Modal content -->
+                <div class="modal-content" id="content">
+                    <span class="close" onclick="onCloseModal()">&times;</span>
+                    <p id="prop-address">Address</p>
+                    <p id="date-listed">Listing date</p>
+                    <p id="price">Listing price</p>
+                    <p id="bed-bath">Number of beds and bathrooms</p>
+                    <p id="brand-company">Brand company</p>
+                    <p id="brand-agent">Brand agent</p>
+                    <p id="advertiser-pn">Advertiser's phone number</p>
+                    <p id="listing-type">Type of property</p>
+                    <p id="prop-description">Property description</p>
+                </div>
+
+            </div>
+    
+        <!------Contact Us------>
+        <div class="contact-us">
+            <p>Let Us Provide You The Best Housing</p>
+            <a class="button-two" href="#">Hire our team</a>
+        </div>
+    
+        <!------Social media start--------->
+        <footer>
+            <p>Client-side Financial</p>
+            <p>For more assistance, feel free to reach out to use on our various social media</p>
+            <div class="social">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+            </div>
+            <p class="end">Copyleft by Client-side Financial Inc.</p>
+        </footer>
+    
+        <script src="Favorites.js"></script>
+    
+    </body>

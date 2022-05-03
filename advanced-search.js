@@ -2,15 +2,101 @@
 const mainMenu = document.querySelector('.mainMenu');
 const closeMenu = document.querySelector('.closeMenu');
 const openMenu = document.querySelector('.openMenu');
+const options = {
+    method: 'GET',
+    headers: {
+        'X-RapidAPI-Host': 'us-real-estate.p.rapidapi.com',
+        'X-RapidAPI-Key': '18cd63294emsh0b9d489e122855ep1b113ajsne2337bf9f996'
+    }
+};
+
 //Loading in the variables for getting user information post-login
 var table = JSON.parse(localStorage.getItem('table'));
 var username = localStorage.getItem('username');
-
 if(username !== null){
     //Logic to add the username on the login page
     username = username.replace(/['"]+/g, '');
     document.getElementById("user").innerHTML = username;
 }
+
+var cityinput = localStorage.getItem('cityinp');
+console.log(cityinput);
+
+if(cityinput!== null || cityinput !== ""){
+    let title = document.getElementById("title");
+    title.style.display = "block";//displays "Your Search Results" when search is button is clicked
+    let city = cityinput;
+    let state = document.getElementById('search-content').value;
+    let maxBeds = document.getElementById('max-bedroom').value || '';
+    let minBeds = document.getElementById('min-bedroom').value || '';
+    let maxBathrooms = document.getElementById('max-bathroom').value || '';
+    let minBathrooms = document.getElementById('min-bathroom').value || '';
+    let maxPrice = document.getElementById('max-price').value || '';
+    let minPrice = document.getElementById('min-price').value || '';
+    let saleOrRent = document.getElementById('sale-rent').value || 'for-sale?';
+    let propType = document.getElementById('prop-type').value || '';
+
+    try {
+        fetch(`https://us-real-estate.p.rapidapi.com/v2/${saleOrRent}offset=0&limit=200&state_code=${state}&city=${city}&sort=newest&price_min=${minPrice}&price_max=${maxPrice}beds_min=${minBeds}&beds_max=${maxBeds}&baths_min=${minBathrooms}&baths_max=${maxBathrooms}&property_type=${propType}`, options)
+            .then(response => response.json())
+            .then(response => {
+                localStorage.removeItem('cityinp');
+                let counter = 0;
+                let cities = response.data.home_search.results //This grabs the json object and to later map and retrieve properties
+                 cities.map(city => {
+                     let baths, propertyId, address, bedrooms,propertyId_dup;
+                     let price = `${city.list_price}`.toLocaleString();
+                     let brand = city.branding[0].name;
+                     let primaryPhoto = `${city.primary_photo?.href}`;
+                     if(isNull(primaryPhoto || price)){
+                        ///find a way to skip to next object
+                     }
+
+                     for(let i = 0; i < 1; i++){
+                         baths = cities[counter].description.baths;
+                         bedrooms = cities[counter].description.beds;
+                         propertyId = cities[counter].property_id;
+                         propertyId_dup = cities[counter].property_id;
+                         address = cities[counter].location.address.line;
+                     }
+                     counter++; //Counter iterates through each listing to retrieve property details, properties are then placed into html
+                    document.getElementById('home').innerHTML += `
+		<div style="border-color: white" class="home-item">
+            <div class="images/home-img" >
+                <img src="${primaryPhoto}" style="border-radius: 50px;
+        border-color: rgb(90, 50, 168);
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        height: 400px;" id="home-picture" alt="home images">
+            </div>
+		<div class="home-descriptions"><ul class =" preview-home-descriptions"><li>
+		    <p class="description-of-home" id="listing-price"> Price: $${price} </p>
+		    <p class="description-of-home" id="bed-count">Bedroom/s: ${bedrooms}</p>
+		    <p class="description-of-home" id="bath-count">Bath/s: ${baths}</p>
+			<p class="description-of-home" id="branding">Company: ${brand}</p>
+			<p class="description-of-home" id="address">Address: ${address}</p></li></lu>
+			<button type="button" class="view-home-button" id=${propertyId} onclick="fullPropertyDetails(event)"> View Listing
+                        <i class="fas fa-search"></i>
+            </button> 
+            <button type="button" class="add-as-favorites" id=${propertyId_dup} onclick="addToFavs(event)"> Favorite
+                        <i class="fas fa-heart"></i>
+            </button>
+		</div>
+       </div>
+		`;
+                })
+            })
+    } catch {
+        alert("Enter another city for listings")
+    }
+
+};
+
+                 
 //Redefining the same HashTable class due to export/import issue
 //Mentioned the issue in the report under Restrictions 
 class HashTable {
@@ -90,16 +176,8 @@ function show(){
 function close(){
     mainMenu.style.top = '-110%';
 }
-"use strict"
 
-//API host and keys for request
-const options = {
-    method: 'GET',
-    headers: {
-        'X-RapidAPI-Host': 'us-real-estate.p.rapidapi.com',
-        'X-RapidAPI-Key': '18cd63294emsh0b9d489e122855ep1b113ajsne2337bf9f996'
-    }
-};
+
 
 //Checks input to conduct a search, returns a message if missing parameters
 function checkCity() {
@@ -195,7 +273,6 @@ function isNull(obj){
 
 //Makes second API request to fetch more property details
 async function fullPropertyDetails(event) {
-    console.log(event.target.id);
     try {
         fetch(`https://us-real-estate.p.rapidapi.com/property-detail?property_id=${event.target.id}`, options)
             .then(response => response.json())
@@ -266,18 +343,22 @@ function traverse(o,func) {
 //Fetching the first favorite and displaying the request
 async function fullFavoritesDetails(event) {
     FavDict[username] = FavArr;
+    localStorage.setItem('username',username);
     localStorage.setItem('FavDict',JSON.stringify(FavDict));
-    try {
-        fetch(`https://us-real-estate.p.rapidapi.com/property-detail?property_id=${FavArr[0]}`, options)
-            .then(response => response.json())
-            .then(data => displayPropDetails(data))
-            .catch(err => console.error(err))
-    } catch(err) {
-        alert("No property details available")
-    }}
+    location.href = 'Favorites.html';
+    return false;
+}
 
-//Add user favorite to favorites
 function addToFavs(event){
+    
+    if(event.target.id!= null || event.target.id!= "" || !FavArr.includes(event.target.id)){
     FavArr.push(event.target.id);
+    console.log(FavArr);
+    }
+    else{
+        alert('Listing already added to favorites!');
+    }
+    
     localStorage.setItem('FavArr',JSON.stringify(FavArr));
 }
+
