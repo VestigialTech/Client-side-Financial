@@ -6,10 +6,11 @@ const openMenu = document.querySelector('.openMenu');
 var table = JSON.parse(localStorage.getItem('table'));
 var username = localStorage.getItem('username');
 
-//Logic to add the username on the login page
-username = username.replace(/['"]+/g, '');
-document.getElementById("user").innerHTML = username;
-
+if(username !== null){
+    //Logic to add the username on the login page
+    username = username.replace(/['"]+/g, '');
+    document.getElementById("user").innerHTML = username;
+}
 //Redefining the same HashTable class due to export/import issue
 //Mentioned the issue in the report under Restrictions 
 class HashTable {
@@ -42,15 +43,15 @@ class HashTable {
     //Created this custom helper method to recreate the hashtable 
     //by reading the local storage table imported from login.js
     make_Hash_Table(arr){
-        var atb = arr['table'];
-        console.log(atb);
-        //tab = new HashTable();
-        Object.keys(atb).forEach(key => {
-            if(atb[key]!= null){
-            console.log(atb[key])
-            this.set(atb[key][0],atb[key][1])} 
-          });
-    }
+        if(table !== null) {
+            var atb = arr['table'];
+            //tab = new HashTable();
+            Object.keys(atb).forEach(key => {
+                if (atb[key] != null) {
+                    this.set(atb[key][0], atb[key][1])
+                }
+            });
+        }}
 
     check_key_value(key,val){
       const target = this.get(key);
@@ -77,7 +78,6 @@ var HashTab = new HashTable();
 var FavArr = [];
 var FavDict = {};
 HashTab.make_Hash_Table(table);
-console.log(HashTab);
 localStorage.setItem('table',JSON.stringify(HashTab));
 
 openMenu.addEventListener('click',show);
@@ -92,7 +92,7 @@ function close(){
 }
 "use strict"
 
-
+//API host and keys for request
 const options = {
     method: 'GET',
     headers: {
@@ -193,6 +193,7 @@ function isNull(obj){
     }
 }
 
+//Makes second API request to fetch more property details
 async function fullPropertyDetails(event) {
     console.log(event.target.id);
     try {
@@ -262,7 +263,7 @@ function traverse(o,func) {
     }
 }
 
-
+//Fetching the first favorite and displaying the request
 async function fullFavoritesDetails(event) {
     FavDict[username] = FavArr;
     localStorage.setItem('FavDict',JSON.stringify(FavDict));
@@ -275,10 +276,8 @@ async function fullFavoritesDetails(event) {
         alert("No property details available")
     }}
 
+//Add user favorite to favorites
 function addToFavs(event){
-    
     FavArr.push(event.target.id);
-    console.log(FavArr);
     localStorage.setItem('FavArr',JSON.stringify(FavArr));
 }
-
