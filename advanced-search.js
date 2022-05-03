@@ -35,10 +35,13 @@ function checkCity() {
     }
 }
 
+
+
 //Event listener that grabs user's input values
 document.getElementById("search-btn").addEventListener("click", function (event) {
     event.preventDefault()
-
+    let title = document.getElementById("title");
+    title.style.display = "block";//displays "Your Search Results" when search is button is clicked
     let city = document.getElementById('search-content').value;
     let state = document.getElementById('search-content').value;
     let maxBeds = document.getElementById('max-bedroom').value || '';
@@ -86,15 +89,19 @@ justify-content: center;
 position: relative;
 height: 400px;" id="home-picture" alt="home images">
             </div>
-		<div class="home-descriptions">
-		    <h5 class="description-of-home" id="listing-price"> $ ${price} </h5>
-		    <h5 class="description-of-home" id="bed-count">Bedroom/s: ${bedrooms}</h5>
-		    <h5 class="description-of-home" id="bath-count">Bath/s: ${baths}</h5>
-			<h5 class="description-of-home" id="branding">Company: ${brand}</h5>
-			<h5 class="description-of-home" id="address">Address: ${address}</h5>
+		<div class="home-descriptions"><ul class =" preview-home-descriptions"><li>
+		    <p class="description-of-home" id="listing-price"> Price: $${price} </p>
+		    <p class="description-of-home" id="bed-count">Bedroom/s: ${bedrooms}</p>
+		    <p class="description-of-home" id="bath-count">Bath/s: ${baths}</p>
+			<p class="description-of-home" id="branding">Company: ${brand}</p>
+			<p class="description-of-home" id="address">Address: ${address}</p></li></lu>
 			<button type="button" class="view-home-button" id=${propertyId} onclick="fullPropertyDetails(event)"> View Listing
                         <i class="fas fa-search"></i>
             </button> 
+            <button type="button" class="add-as-favorites" id="favorites" onclick="
+            "> Favorite
+                        <i class="fas fa-heart"></i>
+            </button>
 		</div>
        </div>
 		`;
@@ -127,14 +134,35 @@ async function fullPropertyDetails(event) {
 let myModal = document.getElementById("myModal");
 myModal.style.display = "none";
 
+//Displays extra property details when listings is clicked
 async function displayPropDetails(data){
     if(data != null) {
-        console.log("displayPropDetails", data);
-        const listDate =document.getElementById("some-text").innerHTML = data.data?.list_date;
+    let photo = data.data.photos[1]?.href;
+    document.getElementById('content').innerHTML += `
+      <div class="images/home-img" >
+                <img src="${photo}" style="border-radius: 50px;
+                border-color: rgb(90, 50, 168);
+                padding: 10px;
+                display: block;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+                height: 400px;" alt="home image">
+            </div>`
+        document.getElementById("prop-address").innerHTML = 'Address: ' + data.data.location.address?.line + ' ' + data.data.location.address?.city + ', ' + data.data.location.address?.state_code + ' ' + data.data.location.address?.postal_code;
+        document.getElementById("price").innerHTML = 'Listing Price: $' +  data.data?.list_price.toLocaleString();
+        document.getElementById("bed-bath").innerHTML = 'Bed/s: ' + data.data.description?.beds + ' ' + 'Bath/s: ' + data.data.description?.baths;
+        document.getElementById("brand-company").innerHTML = 'Branding: ' + data.data.branding[1]?.type + ' ' + data.data.branding[1]?.name;
+        document.getElementById("brand-agent").innerHTML = 'Branding: ' + data.data.branding[0]?.type + ' ' + data.data.branding[0]?.name;
+        document.getElementById("date-listed").innerHTML = 'Listing Date: ' + data.data?.list_date;
         const pnType = data.data.advertisers[0].office.phones[0]?.type;
-        const phone = document.getElementById("advertiser-pn").innerHTML = 'Phone Number: ' + data.data.advertisers[0].office.phones[0]?.number + ' Type: ' + pnType;
-        const description = document.getElementById("prop-description").innerHTML = 'Description: ' + data.data.description.text;
+        document.getElementById("advertiser-pn").innerHTML = 'Phone Number: ' + data.data.advertisers[0].office.phones[0]?.number + ' Type: ' + pnType;
+        document.getElementById("listing-type").innerHTML = 'Listing Type: ' + data.data.description?.type;
+        document.getElementById("prop-description").innerHTML = 'Description: ' + data.data.description?.text.toLowerCase();
         myModal.style.display = "block";
+
+    }else{
+        alert('No additional property details are available!')
     }
 }
 
@@ -142,6 +170,10 @@ async function displayPropDetails(data){
 function  onCloseModal() {
     myModal.style.display = "none";
 }
+
+
+
+
 
 function traverse(o,func) {
     for (var i in o) {

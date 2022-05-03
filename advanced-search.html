@@ -10,13 +10,13 @@
     <meta name="Author Z" content="Deontae A.">
     <meta name="Author Z" content="Anshul N.">
 
-    <link rel = "icon" type = "image/png" href="img/favicon.png"/><title >Search results</title>
     <link href="advanced-search.css" rel="stylesheet"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Search results</title>
 </head>
 
 
@@ -134,7 +134,7 @@
 
     
             <div class="home-result">
-                <h2 class="title">Your Search Results:</h2>
+                <h2 class="title" id="title">Your Search Results:</h2>
                 <div id="home">
                     <!--Home item-->
     
@@ -150,11 +150,17 @@
             <div id="myModal" class="modal">
 
                 <!-- Modal content -->
-                <div class="modal-content">
+                <div class="modal-content" id="content">
                     <span class="close" onclick="onCloseModal()">&times;</span>
-                    <p id="some-text">Some text in the Modal..</p>
-                    <p id="advertiser-pn">advertiser's phone number</p>
-                    <p id="prop-description">property description</p>
+                    <p id="prop-address">Address</p>
+                    <p id="date-listed">Listing date</p>
+                    <p id="price">Listing price</p>
+                    <p id="bed-bath">Number of beds and bathrooms</p>
+                    <p id="brand-company">Brand company</p>
+                    <p id="brand-agent">Brand agent</p>
+                    <p id="advertiser-pn">Advertiser's phone number</p>
+                    <p id="listing-type">Type of property</p>
+                    <p id="prop-description">Property description</p>
                 </div>
 
             </div>

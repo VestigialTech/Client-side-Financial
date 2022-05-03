@@ -41,6 +41,20 @@ function login() {
 $(document).ready(login);
 /*/
 
+const mainMenu = document.querySelector('.mainMenu');
+const closeMenu = document.querySelector('.closeMenu');
+const openMenu = document.querySelector('.openMenu');
+
+openMenu.addEventListener('click',show);
+closeMenu.addEventListener('click',close);
+
+function show(){
+    mainMenu.style.display = 'flex';
+    mainMenu.style.top = '0';
+}
+function close(){
+    mainMenu.style.top = '-110%';
+}
 
 class HashTable {
   constructor() {
@@ -87,17 +101,19 @@ class HashTable {
 }
 }
 const user_table = new HashTable();
-user_table.set("superAdmin","HashPw");
-//user_table.set("kra",123);
-//console.log(user_table.get("user"));
-//console.log(user_table.get("kra"));
-//console.log(user_table.check_key_value("user",123))
-//console.log(user_table.check_key_value("superAdmin","HashPw"))
+user_table.set("Admin","HashPw");
+
 
 function validate()
 {
 var username=document.getElementById("username").value;
 var password=document.getElementById("password").value;
+
+if(username == null || username == "" || password == "" || password == null){
+  alert("Username or Password cannot be empty!");
+  return false;
+}
+
 if(user_table.check_key_value(username,password))
 {
     alert("login successful");
@@ -116,8 +132,16 @@ else
 
 function signup()
 {
+
+
 var username=document.getElementById("username").value;
 var password=document.getElementById("password").value;
+
+if(username == null || username == "" || password == "" || password == null){
+  alert("Username or Password cannot be empty!");
+  return false;
+}
+
 if(user_table.check_key(username)){
     alert("user already created, please login");
     return false;
