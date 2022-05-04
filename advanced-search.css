@@ -70,33 +70,33 @@ nav .closeMenu{
 }
 @media  screen and (max-width: 1130px){
 	.mainMenu{
-	 width: 50%;
+		width: 50%;
 	}
-  }
-   @media screen and (max-width: 900px){
-	   
-   .logo{
-	   font-size: 20px;
-   }
-   
+}
+@media screen and (max-width: 900px){
+
+	.logo{
+		font-size: 20px;
+	}
+
 	.signUpButton{
-	float: right;
-	font-size: small;
-	padding-bottom: 0px;
-	background-color: rgb(90, 50, 168);
-	color: white;
-	text-decoration: none;
-	font-weight: bold;
-	border-radius: 10px;
-	transition: transform .4s;
-	border: 2px solid transparent;
+		float: right;
+		font-size: small;
+		padding-bottom: 0px;
+		background-color: rgb(90, 50, 168);
+		color: white;
+		text-decoration: none;
+		font-weight: bold;
+		border-radius: 10px;
+		transition: transform .4s;
+		border: 2px solid transparent;
 	}
 	nav .mainMenu {
 		margin-top: 60px;
 		padding-top: 10px;
 		position:absolute;
 		top: 80px;
-        right: 8px;
+		right: 8px;
 		background-color: rgb(142, 50, 168);
 		display:flex;
 		flex-direction: column;
@@ -105,10 +105,10 @@ nav .closeMenu{
 		transition: right 1s ease;
 		display: none;
 		z-index: 1;
-		
+
 	}
 	nav .mainMenu li{
-	  padding-top: 1rem;
+		padding-top: 1rem;
 	}
 	nav .mainMenu li :hover,
 	nav ul li a.active{
@@ -117,59 +117,59 @@ nav .closeMenu{
 	nav .openMenu{
 		position: absolute;
 		top: 60px;
-	  right: 30px;
-	  color:white ;
-	  display:flex;
-	  cursor: pointer;
-	 
+		right: 30px;
+		color:white ;
+		display:flex;
+		cursor: pointer;
+
 	}
 	nav .openMenu :hover{
-	   color:rgb(142, 50, 168);
+		color:rgb(142, 50, 168);
 	}
 	nav .mainMenu .closeMenu {
 		margin-top: -80px;
-	  display: block;
-	  padding-top: 75px;
-	  position: absolute;
-	  top: 20px;
-	  right: 20px;
-	  cursor: pointer;
-	  color: white;
-	  }
-   nav .mainMenu .closeMenu :hover{
-	
-	 color:rgb(142, 50, 168);
-   }
-   
-   .content h3{
-	   margin-bottom: 15px;
-	   font-size: 25px;
-   }
-   .content h1{
-	margin: 15px 0 15px;
-	   font-size: 35px;
-   }
-   
-.about{
-	overflow:hidden;
-	padding-top: -100px;
-	background-color: #191919;
-}
-.about img{
-	position: absolute;
-	margin-top: 100px;
-	width: 10%;
-	height: auto;
-}
-.about-text{
-	position: absolute;
-	margin-top: 200px;
-	width: 90%;
-	height: auto;
-}
-.title h2{
-	visibility: hidden;
-}
+		display: block;
+		padding-top: 75px;
+		position: absolute;
+		top: 20px;
+		right: 20px;
+		cursor: pointer;
+		color: white;
+	}
+	nav .mainMenu .closeMenu :hover{
+
+		color:rgb(142, 50, 168);
+	}
+
+	.content h3{
+		margin-bottom: 15px;
+		font-size: 25px;
+	}
+	.content h1{
+		margin: 15px 0 15px;
+		font-size: 35px;
+	}
+
+	.about{
+		overflow:hidden;
+		padding-top: -100px;
+		background-color: #191919;
+	}
+	.about img{
+		position: absolute;
+		margin-top: 100px;
+		width: 10%;
+		height: auto;
+	}
+	.about-text{
+		position: absolute;
+		margin-top: 200px;
+		width: 90%;
+		height: auto;
+	}
+	.title h2{
+		visibility: hidden;
+	}
 
 }
 /*media ends*/
@@ -254,7 +254,7 @@ button:hover{
 }
 .content{
 	transform: translateY(-50%);
-	position: absolute;
+	position: center;
 	top: 50%;
 	left:8%;
 
@@ -499,17 +499,17 @@ footer p:nth-child(2){
 	position: absolute;
 	color:	rgb(90, 50, 168);
 	bottom: 35px;
-	font-size: 14px; 
+	font-size: 14px;
 }
 .preview-wrapper img {
 	position: absolute;
-	 height: 20%;
-	 width: 20%;
-	 
+	height: 20%;
+	width: 20%;
+
 }
 .preview-wrapper img:hover {
 	cursor: pointer;
-	 
+
 }
 .preview-wrapper{
 	justify-content: space-between;
@@ -517,8 +517,8 @@ footer p:nth-child(2){
 	grid-row: 4;
 }
 div .preview-home-descriptions li{
-	
-    font-size: 1rem;
+
+	font-size: 1rem;
 	list-style: none;
 	color: white;
 	justify-content:space-between;
@@ -528,11 +528,11 @@ div.home-search{
 	background-color: #191919;
 	color:white;
 }
-div.home-result{
+div.home-result{ /*This is the "Your Search Results: Bar"*/
 	position:center;
 	padding: 50px;
 	background: #191919;
-	color:white;
+	color: white;
 }
 
 #max-price, #max-bathroom, #max-bedroom, input.search-content, #min-price, #min-bathroom, #min-bedroom, #prop-type, #search-btn{
@@ -541,6 +541,7 @@ div.home-result{
 	border: 3px solid rgb(90, 50, 168);
 	margin: -1px;
 	margin-top: 2px;
+	/*font-weight: bold;*/
 }
 #sale-rent{
 	padding: 8px;
@@ -564,7 +565,7 @@ div.home-result{
 #home img {
 	width: 100%;
 	height: auto;
-		}
+}
 
 /* The Modal (background) w3schools*/
 .modal {
@@ -580,16 +581,20 @@ div.home-result{
 	background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
-/* Modal Content/Box */
+/* Modal Content/Box // Alternatively. text within the description*/
 .modal-content {
-	background-color: rgb(142, 50, 168);
+	background-color: rgb(90, 50, 168);
 	color: white;
 	margin: 15% auto; /* 15% from the top and centered */
 	padding: 20px;
 	border-radius: 2rem;
 	width: 40%; /* Could be more or less, depending on screen size */
-}
 
+}
+.modal-content.p
+{
+	font-weight: bold;
+}
 /* The Close Button */
 .close {
 	color: #aaa;
@@ -606,5 +611,11 @@ div.home-result{
 }
 
 #title{
+	display: none;
+}
+#prop-type /*If this was a deliverable in a professional environment, I would delete the previous declaration;*/
+	/*However, I want to keep that and this text to learn from later*/
+	/*This could not be kept in, due to the fact that we don't have proper error handling for null values*/
+{
 	display: none;
 }
