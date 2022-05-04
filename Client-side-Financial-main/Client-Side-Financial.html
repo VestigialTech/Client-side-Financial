@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel = "icon" type = "image/png" href="img/favicon.png"/><title >ATND Real Estate</title>
+	<link rel="stylesheet" type="text/css" href="Client-Side-Financial.css">
+
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+</head>
+<body>
+	<!----hero image section start---->
+    <div class="hero">
+		<a href="login.html" class="signUpButton">Sign up / Log in</a>
+		<nav>
+			<h2 class="logo"><img rel = "log" type = "image/png" src = "img/favicon.png">ATND<span> Real Estate</span></h2>
+			<div class="openMenu">
+			<li class="fa fa-bars"></li>
+			  </div>
+			  <ul class="mainMenu">
+				<li><a href="#" class="active">Home</a></li>
+				<li><a href="Service.html">Services</a></li>
+				<li><a href="AboutUs.html">About Us</a></li>
+				 <div class="closeMenu"><i class="fa fa-times"></i></div>
+			  </ul>
+		</nav>
+
+		<div class="content" id ='content1'>
+			<h3>Let us help you</h3>
+			<h1>Get your <span>Dream House</span></h1>
+			<h3>Serving the Chicagoland area since 2022</h3>
+			<div class="Query">
+				
+				<form>
+					<input id="Query" name="Query" oninput="checkCityState()" placeholder="Enter Your City" type="text">
+					<!---note for group; change "text" if expecting different result--->
+					<input id="query-listings" type="submit" onclick="location.href='advanced-search.html';" value="submit">
+				</form>
+				<form>
+					<input id="advanced-search-button" type="button" onclick="location.href='advanced-search.html';" value="Advanced Search" />
+				 </form>
+					
+			</div>
+		</div>
+	</div>
+	<div class="preview-wrapper">
+		<div id="preview-search">
+			<!--Houses will be placed here dynamically-->
+		</div>
+	</div>
+
+
+	</div>
+<!----About us section start---->
+<section class="about">
+	<div class="main">
+		<div class="about-text">
+			<h2>About Us</h2>
+			<h5>Dedicated Housing Professionals  <span>and Efficient Realtors</span></h5>
+			<p>We are team of Housing Professionals, looking to provide you the smoothest Home buying experience ever. Browse Property listings for Sale or Rent in all Major U.S states/cities. Our team of experts are always present to help you and provide support thorugh multiple steps in the home-buying process.</p>
+			<button type="button">Let's Chat</button>
+		</div>
+	</div>
+</section>
+
+	<!-----service section start----------->
+	<div class="service">
+		<div class="title">
+			<h2>Our Services</h2>
+		</div>
+
+		<div class="box">
+			<div class="card">
+				<i class="fas fa-bars"></i>
+				<h5>Properties Listings</h5>
+				<div class="pra">
+					<p>Browse properties in major U.S cities for sale in just few clicks! Not looking to buy? We have listings available for rent and lease as well! </p>
+
+					<p style="text-align: center;">
+						<a class="button" href="#">Read More</a>
+					</p>
+				</div>
+			</div>
+
+			<div class="card">
+				<i class="far fa-user"></i>
+				<h5>Custom Support</h5>
+				<div class="pra">
+					<p>Our housing experts will support you through entire home buying process. From listing to closing!  </p>
+
+					<p style="text-align: center;">
+						<a class="button" href="#">Read More</a>
+					</p>
+				</div>
+			</div>
+
+			<div class="card">
+				<i class="far fa-bell"></i>
+				<h5>Customer Account</h5>
+				<div class="pra">
+					<p>Signup and create an account with us. Get customized home notifications and option to save your favorite listings! </p>
+
+					<p style="text-align: center;">
+						<a class="button" href="#">Read More</a>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!------Contact Us------>
+	<div class="contact-us">
+		<p>Let Us Provide You The Best Housing</p>
+		<a class="button-two" href="#">Hire our team</a>
+	</div>
+
+	<!------Social media start--------->
+	<footer>
+		<p>Client-side Financial</p>
+		<p>For more assistance, feel free to reach out to use on our various social media</p>
+		<div class="social">
+			<a href="#"><i class="fab fa-instagram"></i></a>
+			<a href="#"><i class="fab fa-twitter"></i></a>
+			<a href="#"><i class="fab fa-facebook-f"></i></a>
+		</div>
+		<p class="end">Copyleft by Client-side Financial Inc.</p>
+	</footer>
+</body>
+<script src="Client-Side-Financial.js"></script>
+
+</html>
+
+	
+
+
