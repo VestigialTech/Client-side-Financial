@@ -258,7 +258,7 @@ height: 400px;" id="home-picture" alt="home images">
 			<button type="button" class="view-home-button" id=${propertyId} onclick="fullPropertyDetails(event)"> View Listing
                         <i class="fas fa-search"></i>
             </button>
-            <button type="button" class="add-as-favorites" id=${propertyId_dup} onclick="addToFavs(event)"> Favorite
+            <button type="button" class="add-as-favorites" id=${propertyId_dup} onclick= style.display='none';onclick=addToFavs(event)> Favorite
                         <i class="fas fa-heart"></i>
             </button>
 		</div>
@@ -306,18 +306,19 @@ async function displayPropDetails(data){
                 align-items: center;
                 justify-content: center;
                 position: relative;
+                max-width: 100%;
                 height: 400px;" alt="home image">
             </div>`
-        document.getElementById("prop-address").innerHTML = 'Address: ' + data.data.location.address?.line + ' ' + data.data.location.address?.city + ', ' + data.data.location.address?.state_code + ' ' + data.data.location.address?.postal_code;
-        document.getElementById("price").innerHTML = 'Listing Price: $' +  data.data?.list_price.toLocaleString();
-        document.getElementById("bed-bath").innerHTML = 'Bed/s: ' + data.data.description?.beds + ' ' + 'Bath/s: ' + data.data.description?.baths;
-        document.getElementById("brand-company").innerHTML = 'Branding: ' + data.data.branding[1]?.type + ' ' + data.data.branding[1]?.name;
-        document.getElementById("brand-agent").innerHTML = 'Branding: ' + data.data.branding[0]?.type + ' ' + data.data.branding[0]?.name;
-        document.getElementById("date-listed").innerHTML = 'Listing Date: ' + data.data?.list_date;
+        document.getElementById("prop-address").innerHTML = '<strong>Address:   </strong>' + data.data.location.address?.line + ' ' + data.data.location.address?.city + ', ' + data.data.location.address?.state_code + ' ' + data.data.location.address?.postal_code;
+        document.getElementById("price").innerHTML = '<strong>Listing Price:   $</strong>' +  data.data?.list_price.toLocaleString();
+        document.getElementById("bed-bath").innerHTML = '<strong>Bed/s:   </strong>' + data.data.description?.beds + ' ' + 'Bath/s: ' + data.data.description?.baths;
+        document.getElementById("brand-company").innerHTML = '<strong>Branding:   </strong>' + data.data.branding[1]?.type + ' ' + data.data.branding[1]?.name;
+        document.getElementById("brand-agent").innerHTML = '<strong>Branding:   </strong>' + data.data.branding[0]?.type + ' ' + data.data.branding[0]?.name;
+        document.getElementById("date-listed").innerHTML = '<strong>Listing Date:   </strong>' + data.data?.list_date + ' UTC ';
         const pnType = data.data.advertisers[0].office.phones[0]?.type;
-        document.getElementById("advertiser-pn").innerHTML = 'Phone Number: ' + data.data.advertisers[0].office.phones[0]?.number + ' Type: ' + pnType;
-        document.getElementById("listing-type").innerHTML = 'Listing Type: ' + data.data.description?.type;
-        document.getElementById("prop-description").innerHTML = 'Description: ' + data.data.description?.text.toLowerCase();
+        document.getElementById("advertiser-pn").innerHTML = '<strong>Phone Number:   </strong>' + data.data.advertisers[0].office.phones[0]?.number + ' Type: ' + pnType;
+        document.getElementById("listing-type").innerHTML = '<strong>Listing Type:   </strong>' + data.data.description?.type;
+        document.getElementById("prop-description").innerHTML = '<strong>Description:   </strong>' + data.data.description?.text.toLowerCase();
         myModal.style.display = "block";
 
     }else{
